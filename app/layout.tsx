@@ -8,12 +8,12 @@ import CookieConsent from "@/components/CookieConsent";
 
 const onest = Onest({
   variable: "--font-onest",
-  subsets: ["latin", "cyrillic"],
+  subsets: ["latin"],
 });
 
 const raleway = Raleway({
   variable: "--font-raleway",
-  subsets: ["latin", "cyrillic"],
+  subsets: ["latin"],
 });
 
 export default function RootLayout({

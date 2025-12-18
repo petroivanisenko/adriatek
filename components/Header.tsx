@@ -12,8 +12,6 @@ import MobileMenu from "./MobileMenu";
 import HeaderCartButton from "./HeaderCartButton";
 import Search from "./Search";
 const Header = () => {
-  console.log(process.env.NODE_ENV);
-
   return (
     <header className="bg-background border-b sticky top-0 z-50">
       <div className="container mx-auto py-4 max-sm:pl-2">
