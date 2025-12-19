@@ -9,7 +9,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import {
   AtSignIcon,
   ClockIcon,
@@ -145,14 +144,6 @@ export default function ContactsPage() {
                         required
                       />
                     </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone</Label>
-                    <Input
-                      id="phone"
-                      placeholder="+49 (___) ___-__-__"
-                      required
-                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message">Message</Label>

@@ -111,7 +111,7 @@ export default function Hero() {
                 <Button
                   size="lg"
                   variant={"outline"}
-                  className="w-48 backdrop-blur-xs py-6 text-lg hover:scale-105"
+                  className="w-48 bg-transparent backdrop-blur-xs py-6 text-lg hover:scale-105"
                 >
                   Explore
                   <Sparkles className="ml-2 size-5" />

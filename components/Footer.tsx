@@ -1,3 +1,4 @@
+import { Clock, Mail, Phone, Pin } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
@@ -90,22 +91,32 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3 md:space-y-2 text-xs md:text-sm">
               <li className="text-muted-foreground">
-                <a href="tel:+36205582310">📞 +36 205582310</a>
-              </li>
-              <li className="text-muted-foreground">
-                📍 3rd Floor, 86-90, Paul Street
-                <br />
-                London, England, EC2A 4NE
-                <br />
-                UNITED KINGDOM
-              </li>
-              <li className="text-muted-foreground">
-                <a href="mailto:info@zoltantech-ltd.com">
-                  ✉️ info@zoltantech-ltd.com
+                <a href="tel:+36205582310" className="flex gap-1 items-center">
+                  <Phone size={16} /> +36 205582310
                 </a>
               </li>
               <li className="text-muted-foreground">
-                🕒 Mon-Fri <time>9:00-18:00</time>; Sat <time>10:00-17:00</time>
+                <span className="flex gap-1 items-center">
+                  <Pin size={16} /> 3rd Floor, 86-90, Paul Street
+                  <br />
+                  London, England, EC2A 4NE
+                  <br />
+                  UNITED KINGDOM
+                </span>
+              </li>
+              <li className="text-muted-foreground">
+                <a
+                  href="mailto:info@zoltantech-ltd.com"
+                  className="flex gap-1 items-center"
+                >
+                  <Mail size={16} /> info@zoltantech-ltd.com
+                </a>
+              </li>
+              <li className="text-muted-foreground">
+                <span className="flex gap-1 items-center">
+                  <Clock size={16} /> Mon-Fri
+                  <time>9:00-18:00</time>; Sat <time>10:00-17:00</time>
+                </span>
               </li>
             </ul>
           </div>

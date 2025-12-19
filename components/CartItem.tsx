@@ -32,13 +32,13 @@ export default function CartItem({
       <Link
         href={`/product/${productId}`}
         onClick={onCartCloseAction}
-        className={`relative ${compact ? "size-28" : "size-32"} rounded-md overflow-hidden shrink-0`}
+        className={`relative ${compact ? "size-28" : "size-32"} rounded-md overflow-hidden shrink-0 bg-white`}
       >
         <Image
           src={imageSrc}
           alt={product.name}
           fill
-          className="object-cover"
+          className="object-contain p-2"
           sizes="(max-width: 768px) 112px, 128px"
           unoptimized={imageSrc.includes("localhost")}
         />

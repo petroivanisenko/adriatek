@@ -1,6 +1,5 @@
 "use client";
 
-import { SearchIcon } from "lucide-react";
 import { Input } from "./ui/input";
 import { useDebounceValue } from "usehooks-ts";
 import { RefObject, useEffect, useRef, useState } from "react";
@@ -69,13 +68,6 @@ export default function Search() {
           onFocus={() => debouncedSearchTerm && setIsOpen(true)}
           className="w-full"
         />
-        {isLoading ? (
-          <div className="absolute right-4 top-1/2 -translate-y-1/2">
-            <div className="animate-spin size-4 border-2 border-muted-foreground border-t-transparent rounded-full" />
-          </div>
-        ) : (
-          <SearchIcon className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
-        )}
       </div>
 
       {isOpen && results.length > 0 && (
