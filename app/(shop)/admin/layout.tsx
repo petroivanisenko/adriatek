@@ -16,7 +16,7 @@ export default async function AdminLayout({
 
   return (
     <>
-      <div className="border-b bg-muted/40">
+      <div className="border-b">
         <div className="container mx-auto py-2 px-4 flex justify-end">
           <AdminLogoutButton />
         </div>
