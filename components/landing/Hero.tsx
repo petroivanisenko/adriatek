@@ -30,7 +30,7 @@ export default function Hero() {
         ]}
       >
         <CarouselContent className="h-full">
-          {["/hero-banner.jpg", "/hero-banner2.jpg", "/hero-banner3.jpg"].map(
+          {["/hero-banner.webp", "/hero-banner2.webp", "/hero-banner3.webp"].map(
             (image, index) => (
               <CarouselItem key={index} className="h-[calc(100vh-68px)]">
                 <div className="relative w-full h-full">

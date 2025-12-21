@@ -73,7 +73,7 @@ export const testimonials = [
   {
     id: 1,
     name: "Michael Chen",
-    avatar: "/avatar1.jpg",
+    avatar: "/avatar1.webp",
     rating: 5,
     text: "Ordered professional equipment for our office. Great service and quality products!",
     date: "2024-11-15",
@@ -81,7 +81,7 @@ export const testimonials = [
   {
     id: 2,
     name: "Sarah Wilson",
-    avatar: "/avatar2.jpg",
+    avatar: "/avatar2.webp",
     rating: 5,
     text: "Excellent selection of high-end laptops. Delivery was exactly as promised.",
     date: "2024-10-22",
@@ -89,7 +89,7 @@ export const testimonials = [
   {
     id: 3,
     name: "David Martinez",
-    avatar: "/avatar3.jpg",
+    avatar: "/avatar3.webp",
     rating: 5,
     text: "Professional approach and premium products. Highly recommended for business purchases!",
     date: "2024-09-18",
@@ -215,52 +215,6 @@ export const importantInfo = [
   "Delivery available to European countries (EU + other European countries)",
   "Delivery NOT available to Russia, Belarus, and Ukraine",
   "Invoice will be sent to your email after order placement",
-];
-
-export const promotions = [
-  {
-    id: 1,
-    title: "Premium Electronics Catalogue",
-    description:
-      "Explore our selection of high-end electronics from €1,000 to €7,000 for home and office.",
-    period: "Ongoing",
-    image: "/promo1.jpg",
-    badge: "Premium",
-    conditions: [
-      "Original products only",
-      "Full manufacturer warranty",
-      "SEPA bank transfer payment",
-    ],
-    link: "/catalogue",
-  },
-  {
-    id: 2,
-    title: "Business Solutions",
-    description:
-      "Complete office equipment packages with professional support.",
-    period: "Available for corporate clients",
-    image: "/promo2.jpg",
-    conditions: [
-      "Bulk orders available",
-      "Individual pricing",
-      "Direct supplier delivery",
-    ],
-    link: "/catalogue",
-  },
-  {
-    id: 3,
-    title: "Official Warranty",
-    description:
-      "All products come with full manufacturer warranty and documentation.",
-    period: "Standard on all products",
-    image: "/promo3.jpg",
-    conditions: [
-      "Authorized service centers",
-      "Original manufacturer warranty",
-      "Full product documentation",
-    ],
-    link: "/about",
-  },
 ];
 
 export const workingHours = {

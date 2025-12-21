@@ -6,67 +6,67 @@ const categoryData: Prisma.CategoryCreateInput[] = [
     name: "Computers & Peripherals",
     description:
       "Desktop computers, monitors, keyboards, mice, and essential computer accessories",
-    image: "/categories/computers.jpg",
+    image: "/categories/computers.webp",
     slug: "computers-peripherals",
   },
   {
     name: "Laptops & All-in-One Computers",
     description:
       "Portable laptops and space-saving all-in-one desktop solutions",
-    image: "/categories/laptops.jpg",
+    image: "/categories/laptops.webp",
     slug: "laptops-all-in-one",
   },
   {
     name: "Gaming Gadgets & Equipment",
     description:
       "Gaming consoles, controllers, headsets, and professional gaming accessories",
-    image: "/categories/gaming.jpg",
+    image: "/categories/gaming.webp",
     slug: "gaming-gadgets",
   },
   {
     name: "Televisions",
     description:
       "Smart TVs, OLED, QLED, and premium home entertainment displays",
-    image: "/categories/televisions.jpg",
+    image: "/categories/televisions.webp",
     slug: "televisions",
   },
   {
     name: "Home Appliances",
     description:
       "Smart home appliances, kitchen equipment, and household electronics",
-    image: "/categories/home-appliances.jpg",
+    image: "/categories/home-appliances.webp",
     slug: "home-appliances",
   },
   {
     name: "Smart Gadgets",
     description: "Smart home devices, wearables, and innovative tech gadgets",
-    image: "/categories/smart-gadgets.jpg",
+    image: "/categories/smart-gadgets.webp",
     slug: "smart-gadgets",
   },
   {
     name: "E-Scooters & E-Bikes",
     description: "Electric scooters, e-bikes, and personal mobility solutions",
-    image: "/categories/e-mobility.jpg",
+    image: "/categories/e-mobility.webp",
     slug: "e-scooters-e-bikes",
   },
   {
     name: "Acoustic Systems",
     description:
       "Premium speakers, soundbars, home theater systems, and audio equipment",
-    image: "/categories/acoustic.jpg",
+    image: "/categories/acoustic.webp",
     slug: "acoustic-systems",
   },
   {
     name: "Backup Power Supplies",
     description: "UPS systems, power banks, and backup power solutions",
-    image: "/categories/power-supplies.jpg",
+    image: "/categories/power-supplies.webp",
     slug: "backup-power",
   },
   {
     name: "Office Equipment",
     description:
       "Printers, scanners, projectors, and professional office technology",
-    image: "/categories/office.jpg",
+    image: "/categories/office.webp",
     slug: "office-equipment",
   },
 ];

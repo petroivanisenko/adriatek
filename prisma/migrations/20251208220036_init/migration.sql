@@ -4,7 +4,7 @@ CREATE TABLE "Product" (
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "price" INTEGER NOT NULL,
-    "image" TEXT NOT NULL DEFAULT '/default-avatar.jpg',
+    "image" TEXT NOT NULL DEFAULT '/default-avatar.webp',
     "categoryId" INTEGER NOT NULL,
     "inStock" BOOLEAN NOT NULL,
     "rating" DOUBLE PRECISION NOT NULL,
