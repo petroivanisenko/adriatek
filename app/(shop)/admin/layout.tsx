@@ -1,7 +1,7 @@
 import React from "react";
 import { checkAdminAuth } from "@/actions/admin-auth";
-import { AdminLoginForm } from "@/components/admin/admin-login-form";
-import { AdminLogoutButton } from "@/components/admin/admin-logout-button";
+import { AdminLoginForm } from "@/components/admin/AdminLoginForm";
+import { AdminLogoutButton } from "@/components/admin/AdminLogoutButton";
 
 export default async function AdminLayout({
   children,

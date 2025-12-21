@@ -1,6 +1,7 @@
 import { testimonials } from "@/constants";
-import { MessageCircleHeartIcon, StarIcon } from "lucide-react";
+import { MessageCircleHeartIcon } from "lucide-react";
 import Image from "next/image";
+import Rating from "@/components/shared/Rating";
 import {
   Card,
   CardContent,
@@ -51,14 +52,7 @@ export default function Testimonials() {
                       {testimonial.name}
                     </h3>
                     <div className="flex text-yellow-400 gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <StarIcon
-                          key={i}
-                          size={18}
-                          className="transition-colors duration-300"
-                          fill={i < testimonial.rating ? "yellow" : "none"}
-                        />
-                      ))}
+                      <Rating rating={testimonial.rating} size={18} />
                     </div>
                   </div>
                 </div>

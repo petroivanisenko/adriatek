@@ -1,4 +1,4 @@
-import { StarIcon } from "lucide-react";
+import Rating from "@/components/shared/Rating";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProduct, getProducts, getSimilarProducts } from "@/actions/product";
@@ -76,12 +76,7 @@ export default async function ProductPage({
 
           <div className="flex gap-2 items-center mb-5">
             <div className="flex text-yellow-500">
-              {[...Array(5)].map((_, i) => (
-                <StarIcon
-                  key={i}
-                  className={`size-4 ${i < (product.rating || 0) ? "fill-yellow-500" : "fill-none"}`}
-                />
-              ))}
+              <Rating rating={product.rating || 0} size={16} />
             </div>
             {product.rating && (
               <span className="text-sm font-medium text-muted-foreground">

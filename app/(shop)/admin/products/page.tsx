@@ -1,7 +1,7 @@
 import { getProducts } from "@/actions/product";
 import { getCategories } from "@/actions/category";
-import { CategoryFilter } from "@/components/admin/category-filter";
-import { ProductFormModal } from "@/components/shared/product-form-modal";
+import { CategoryFilter } from "@/components/admin/CategoryFilter";
+import { ProductFormModal } from "@/components/shared/ProductFormModal";
 import {
   Table,
   TableBody,
@@ -15,7 +15,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { resolvePublicImageUrl } from "@/lib/images";
 
-import { DeleteProductButton } from "@/components/shared/delete-product-button";
+import { DeleteProductButton } from "@/components/shared/DeleteProductButton";
 import {
   Pagination,
   PaginationContent,

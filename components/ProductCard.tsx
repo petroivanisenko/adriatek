@@ -1,4 +1,4 @@
-import { StarIcon } from "lucide-react";
+import Rating from "@/components/shared/Rating";
 import {
   Card,
   CardDescription,
@@ -43,14 +43,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <CardHeader className="px-4 grow">
           {/* Rating display */}
           <div className="flex items-center mb-2">
-            <div className="flex items-center text-yellow-500">
-              {[...Array(5)].map((_, i) => (
-                <StarIcon
-                  key={i}
-                  className={`size-4 ${i < (product.rating || 0) ? "fill-yellow-500" : "fill-none"}`}
-                />
-              ))}
-            </div>
+            <Rating rating={product.rating || 0} size={16} />
             <span className="text-xs ml-2 text-muted-foreground">
               {product.rating ? `${product.rating.toFixed(1)}` : "No rating"}
             </span>
