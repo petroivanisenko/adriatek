@@ -28,7 +28,7 @@ export default async function Popular() {
               <Link
                 href={`/catalogue/${category.slug}`}
                 key={category.name}
-                className="group relative h-[300px] sm:h-[350px] md:h-[400px] overflow-hidden rounded-xl transition-all duration-300 border-2 border-transparent"
+                className="group relative h-75 sm:h-87.5 md:h-100 overflow-hidden rounded-xl transition-all duration-300 border-2 border-transparent"
               >
                 <Image
                   src={category.image}
