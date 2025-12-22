@@ -6,6 +6,7 @@ import {
   InfoIcon,
   PhoneIcon,
   Shield,
+  MailIcon,
 } from "lucide-react";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import MobileMenu from "./MobileMenu";
@@ -76,7 +77,7 @@ const Header = () => {
                     href="/contacts"
                     className="flex gap-1 items-center text-muted-foreground hover:text-foreground duration-150"
                   >
-                    <PhoneIcon size={20} />
+                    <MailIcon size={20} />
                     <h3 className="font-bold">Contacts</h3>
                   </Link>
                 </li>

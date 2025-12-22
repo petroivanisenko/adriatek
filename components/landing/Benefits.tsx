@@ -12,7 +12,7 @@ export default function Benefits() {
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Us</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Experience the best tech shopping experience with premium
+            The best tech shopping experience with premium
             electronics and exceptional service
           </p>
         </div>

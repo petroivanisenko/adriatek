@@ -18,7 +18,7 @@ export const advantages = [
   {
     title: "Premium Selection",
     description:
-      "High-end electronics for home and office from €1,000 to €7,000. Only quality brands and original products.",
+      "High-end electronics for home and office. Only quality brands and original products.",
   },
   {
     title: "Supplier Direct Delivery",
@@ -169,12 +169,6 @@ export const deliveryOptions = [
     description:
       "Delivery to all European countries (excluding Russia, Belarus, Ukraine)",
     icon: CheckCheckIcon,
-  },
-  {
-    id: 4,
-    title: "Tracking Information",
-    description: "Email notifications about delivery status and tracking",
-    icon: SearchCheckIcon,
   },
 ];
 

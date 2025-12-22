@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
-import { ArrowRightIcon, CheckCircle2Icon, PhoneIcon } from "lucide-react";
+import { ArrowRightIcon, CheckCircle2Icon, MailIcon } from "lucide-react";
 import { advantages, values } from "@/constants";
 import { SetBreadcrumbs } from "@/components/SetBreadcrumbs";
 import { Metadata } from "next";
@@ -20,18 +20,24 @@ export default function AboutPage() {
 
         <div className="prose prose-lg max-w-none mb-8 sm:mb-10 md:mb-12">
           <p>
-            <strong>ZoltanTech LTD</strong> (Company Number: 16887893) is a
-            UK-based company specializing in the distribution of premium
-            electronics for home and office use across Europe. We offer a
-            carefully curated selection of high-end electronics ranging from
-            €1,000 to €7,000.
+            ZOLTANTECH LTD is a UK-based company specializing in the
+            distribution of premium and exclusive electronics for home and
+            office use across Europe. Our portfolio is carefully curated to
+            include only high-performance, design-driven, and technologically
+            advanced solutions that meet the expectations of the most discerning
+            clients.
           </p>
           <p>
-            Our mission is to provide European businesses and individuals with
-            access to quality electronics through secure and transparent
-            transactions. We work directly with authorized suppliers to ensure
-            product authenticity, full warranty coverage, and professional
-            delivery within 30 days to all European countries.
+            At the core of our approach is a client-oriented philosophy. We
+            focus on understanding individual requirements and delivering
+            tailored solutions, supported by professional consultation, precise
+            logistics, and consistent after-sales support. This ensures a
+            seamless experience from selection to delivery.
+          </p>
+          <p>
+            We work directly with authorized suppliers to ensure product
+            authenticity, full warranty coverage, and professional delivery
+            within 30 days to all European countries.
           </p>
           <p>
             We accept only SEPA bank transfers for full prepayment, ensuring
@@ -91,7 +97,7 @@ export default function AboutPage() {
             </Button>
             <Button variant="outline" size="lg" asChild>
               <Link href="/contacts">
-                Contact us <PhoneIcon />
+                Contact us <MailIcon />
               </Link>
             </Button>
           </div>

@@ -2,7 +2,7 @@ import {
   MenuIcon,
   LaptopIcon,
   PackageIcon,
-  PhoneIcon,
+  MailIcon,
   InfoIcon,
 } from "lucide-react";
 import { Button } from "./ui/button";
@@ -77,7 +77,7 @@ export default function MobileMenu() {
               <Link href="/contacts" className="block">
                 <Card className="transition-all hover:shadow-md hover:scale-105 h-full">
                   <CardContent className="flex flex-col items-center justify-center p-4 h-full">
-                    <PhoneIcon className="mb-2 text-primary" />
+                    <MailIcon className="mb-2 text-primary" />
                     <span className="text-center font-medium">Contacts</span>
                   </CardContent>
                 </Card>

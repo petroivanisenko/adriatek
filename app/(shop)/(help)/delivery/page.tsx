@@ -129,30 +129,13 @@ export default function DeliveryPaymentPage() {
               <CardTitle>Invoice and Documentation</CardTitle>
             </CardHeader>
             <CardContent className="prose prose-sm sm:prose max-w-none">
-              <p>After placing your order, you will automatically receive:</p>
+              <p>After placing your order:</p>
               <ul>
                 <li>
-                  <strong>Commercial Invoice:</strong> Detailed invoice with
-                  product descriptions, quantities, and prices
-                </li>
-                <li>
-                  <strong>Bank Details:</strong> Our SEPA bank account
-                  information for payment
-                </li>
-                <li>
-                  <strong>Payment Reference:</strong> Unique reference number to
-                  include in your bank transfer
-                </li>
-                <li>
-                  <strong>Company Information:</strong> Full company details for
-                  your records
+                  Our manager will contact you to confirm the order and provide
+                  the invoice
                 </li>
               </ul>
-              <p>
-                All invoices are generated in accordance with UK and EU
-                invoicing requirements and are suitable for VAT reclaim (where
-                applicable).
-              </p>
             </CardContent>
           </Card>
         </section>
@@ -217,14 +200,6 @@ export default function DeliveryPaymentPage() {
                   begins processing
                 </li>
                 <li>
-                  <strong>Dispatch Notification:</strong> Email notification
-                  when order is shipped
-                </li>
-                <li>
-                  <strong>Tracking Information:</strong> Tracking number
-                  provided (where available)
-                </li>
-                <li>
                   <strong>Delivery:</strong> Product arrives at your specified
                   address
                 </li>
@@ -259,9 +234,7 @@ export default function DeliveryPaymentPage() {
                   Northern Ireland
                 </li>
                 <li>
-                  <strong>Other European Countries:</strong> Albania, Andorra,
-                  Bosnia and Herzegovina, Kosovo, Monaco, Montenegro, North
-                  Macedonia, San Marino, Serbia, Turkey, Vatican City
+                  <strong>Other European Countries:</strong> Albania, Andorra, Monaco, Montenegro, San Marino, Serbia, Turkey, Vatican City
                 </li>
               </ul>
 
@@ -270,6 +243,7 @@ export default function DeliveryPaymentPage() {
                 <li>Russia</li>
                 <li>Belarus</li>
                 <li>Ukraine</li>
+                <li>And other countries under sanctions</li>
               </ul>
 
               <p className="text-sm text-muted-foreground">
@@ -371,9 +345,6 @@ export default function DeliveryPaymentPage() {
               <ul>
                 <li>
                   <strong>Email:</strong> info@zoltantech-ltd.com
-                </li>
-                <li>
-                  <strong>Phone:</strong> +36 205582310
                 </li>
                 <li>
                   <strong>Working Hours:</strong> Mon-Fri 9:00-18:00, Sat
