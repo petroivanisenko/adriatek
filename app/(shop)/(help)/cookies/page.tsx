@@ -337,7 +337,7 @@ export default function CookiePolicyPage() {
                 <strong>Email:</strong> info@zoltantech-ltd.com
               </li>
               <li>
-                <strong>Phone:</strong> +36 205582310
+                <strong>Phone:</strong> +44 7350814586
               </li>
               <li>
                 <strong>Address:</strong> 3rd Floor, 86-90, Paul Street, London,

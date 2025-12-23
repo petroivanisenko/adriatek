@@ -49,7 +49,7 @@ export default function PrivacyPage() {
                 England, EC2A 4NE
               </li>
               <li>Email: info@zoltantech-ltd.com</li>
-              <li>Phone: +36 205582310</li>
+              <li>Phone: +44 7350814586</li>
             </ul>
             <p>
               By using our Site and services, you consent to the collection,
@@ -419,7 +419,7 @@ export default function PrivacyPage() {
                 <strong>Email:</strong> info@zoltantech-ltd.com
               </li>
               <li>
-                <strong>Phone:</strong> +36 205582310
+                <strong>Phone:</strong> +44 7350814586
               </li>
               <li>
                 <strong>Address:</strong> 3rd Floor, 86-90, Paul Street, London,
