@@ -4,26 +4,41 @@ import { MessageCircle, PhoneCall } from "lucide-react";
 
 export default function CallToAction() {
   return (
-    <section className="py-10 md:py-16 bg-primary">
-      <div className="container mx-auto text-center text-primary-foreground px-4">
-        <div className="inline-flex items-center justify-center size-16 rounded-full bg-accent/90 mb-6">
-          <MessageCircle className="size-8 text-primary" />
+    <section className="py-16 md:py-24 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 size-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 size-96 bg-primary/10 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto text-center px-4 relative z-10">
+        <div className="inline-flex items-center justify-center size-20 rounded-2xl bg-primary/10 mb-8 backdrop-blur-md border border-primary/20">
+          <MessageCircle className="size-10 text-primary" />
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">
-          Ready to upgrade your tech?
+        <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">
+          Ready to upgrade your enterprise?
         </h2>
-        <p className="text-base md:text-xl mb-6 md:mb-8 max-w-2xl mx-auto">
-          Our tech experts will help you find the perfect device for your needs
+        <p className="text-lg md:text-2xl mb-10 max-w-2xl mx-auto text-muted-foreground">
+          Our specialists are ready to help you find the perfect high-end 
+          solution for your home or professional office.
         </p>
-        <Link href="/contacts">
-          <Button
-            size="lg"
-            variant="secondary"
-            className="h-12 px-6 text-base transition-all duration-300"
-          >
-            Contact us <PhoneCall />
-          </Button>
-        </Link>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link href="/contacts">
+            <Button
+              size="lg"
+              className="h-14 px-10 text-lg font-medium shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105"
+            >
+              Contact Us <PhoneCall className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
+          <Link href="/delivery">
+            <Button
+              size="lg"
+              variant="outline"
+              className="h-14 px-10 text-lg font-medium border-primary/20 hover:bg-primary/5 transition-all duration-300 hover:scale-105"
+            >
+              Delivery & Payment
+            </Button>
+          </Link>
+        </div>
       </div>
     </section>
   );

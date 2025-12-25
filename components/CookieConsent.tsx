@@ -17,7 +17,7 @@ export default function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const cookieConsent = localStorage.getItem("zoltantech-cookie-consent");
+    const cookieConsent = localStorage.getItem("adriatek-cookie-consent");
     if (!cookieConsent) {
       setTimeout(() => {
         setShowBanner(true);
@@ -27,18 +27,18 @@ export default function CookieConsent() {
   }, []);
 
   const acceptCookies = () => {
-    localStorage.setItem("zoltantech-cookie-consent", "accepted");
+    localStorage.setItem("adriatek-cookie-consent", "accepted");
     localStorage.setItem(
-      "zoltantech-cookie-consent-date",
+      "adriatek-cookie-consent-date",
       new Date().toISOString(),
     );
     closeBanner();
   };
 
   const rejectCookies = () => {
-    localStorage.setItem("zoltantech-cookie-consent", "rejected");
+    localStorage.setItem("adriatek-cookie-consent", "rejected");
     localStorage.setItem(
-      "zoltantech-cookie-consent-date",
+      "adriatek-cookie-consent-date",
       new Date().toISOString(),
     );
     closeBanner();
@@ -100,7 +100,7 @@ export default function CookieConsent() {
             .
           </p>
           <p className="text-xs text-muted-foreground mt-3">
-            <strong>ZoltanTech LTD</strong> (Company Number: 16887893) is
+            <strong>Adriatek Limited</strong> (Company Number: 79144752) is
             committed to protecting your privacy and complying with GDPR and UK
             Data Protection Act 2018.
           </p>

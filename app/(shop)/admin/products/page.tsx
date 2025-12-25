@@ -27,6 +27,8 @@ import {
 
 type SortField = "id" | "image" | "name" | "category" | "price" | "status";
 
+import { ProductsTable } from "@/components/admin/ProductsTable";
+
 export default async function AdminProductsPage({
   searchParams,
 }: {
@@ -53,7 +55,7 @@ export default async function AdminProductsPage({
   const sortBy = validSortFields.includes(sortByParam as SortField)
     ? (sortByParam as SortField)
     : "id";
-  const sortOrder = sortOrderParam === "desc" ? "desc" : "asc";
+  const sortOrder = sortOrderParam === "desc" ? "desc" : "asc" as "asc" | "desc";
 
   const page = parseInt(params.page || "1", 10);
   const categoryIdParam = params.categoryId;
@@ -67,8 +69,8 @@ export default async function AdminProductsPage({
     getCategories(),
   ]);
 
-  const products = data && "products" in data ? data.products : [];
-  const total = data && "total" in data ? data.total : 0;
+  const products = data && "products" in data ? (data as any).products : [];
+  const total = data && "total" in data ? (data as any).total : 0;
   const totalPages = Math.ceil(total / limit);
 
   const getSortValue = (product: any, field: SortField) => {
@@ -103,17 +105,6 @@ export default async function AdminProductsPage({
       : String(valueB).localeCompare(String(valueA));
   });
 
-  const createSortLink = (field: SortField) => {
-    const nextOrder = sortBy === field && sortOrder === "asc" ? "desc" : "asc";
-    const search = new URLSearchParams({
-      page: "1",
-      sortBy: field,
-      sortOrder: nextOrder,
-    });
-    if (categoryIdParam) search.set("categoryId", categoryIdParam);
-    return `?${search.toString()}`;
-  };
-
   const createPageLink = (targetPage: number) => {
     const search = new URLSearchParams({
       page: targetPage.toString(),
@@ -124,150 +115,28 @@ export default async function AdminProductsPage({
     return `?${search.toString()}`;
   };
 
-  const renderSortIndicator = (field: SortField) =>
-    sortBy === field ? (sortOrder === "asc" ? "↑" : "↓") : null;
-
   return (
-    <div className="container mx-auto py-10 px-12">
-      <div className="flex justify-between items-center mb-8">
+    <div className="container mx-auto py-10 px-8 lg:px-12 max-w-7xl">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
         <div>
-          <h1 className="text-3xl font-bold">Products</h1>
-          <p className="text-accent-foreground">Products count: {total}</p>
+          <h1 className="text-4xl font-black tracking-tighter uppercase mb-2">Inventory Control</h1>
+          <div className="flex items-center gap-2 text-accent-foreground font-bold uppercase tracking-widest text-[10px] opacity-60">
+            <span className="w-8 h-px bg-primary/30" />
+            <span>Active SKU count: {total}</span>
+          </div>
         </div>
-        <div className="flex gap-4">
+        <div className="flex items-center gap-4 w-full md:w-auto">
           <CategoryFilter categories={categories || []} />
           <ProductFormModal />
         </div>
       </div>
 
-      <div className="border rounded-lg">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>
-                <Link
-                  href={createSortLink("id")}
-                  className="flex items-center gap-1"
-                >
-                  <span>ID</span>
-                  {renderSortIndicator("id") ? (
-                    <span className="text-xs">{renderSortIndicator("id")}</span>
-                  ) : null}
-                </Link>
-              </TableHead>
-              <TableHead>
-                <Link
-                  href={createSortLink("image")}
-                  className="flex items-center gap-1"
-                >
-                  <span>Image</span>
-                  {renderSortIndicator("image") ? (
-                    <span className="text-xs">
-                      {renderSortIndicator("image")}
-                    </span>
-                  ) : null}
-                </Link>
-              </TableHead>
-              <TableHead>
-                <Link
-                  href={createSortLink("name")}
-                  className="flex items-center gap-1"
-                >
-                  <span>Name</span>
-                  {renderSortIndicator("name") ? (
-                    <span className="text-xs">
-                      {renderSortIndicator("name")}
-                    </span>
-                  ) : null}
-                </Link>
-              </TableHead>
-              <TableHead>
-                <Link
-                  href={createSortLink("category")}
-                  className="flex items-center gap-1"
-                >
-                  <span>Category</span>
-                  {renderSortIndicator("category") ? (
-                    <span className="text-xs">
-                      {renderSortIndicator("category")}
-                    </span>
-                  ) : null}
-                </Link>
-              </TableHead>
-              <TableHead>
-                <Link
-                  href={createSortLink("price")}
-                  className="flex items-center gap-1"
-                >
-                  <span>Price</span>
-                  {renderSortIndicator("price") ? (
-                    <span className="text-xs">
-                      {renderSortIndicator("price")}
-                    </span>
-                  ) : null}
-                </Link>
-              </TableHead>
-              <TableHead>
-                <Link
-                  href={createSortLink("status")}
-                  className="flex items-center gap-1"
-                >
-                  <span>Status</span>
-                  {renderSortIndicator("status") ? (
-                    <span className="text-xs">
-                      {renderSortIndicator("status")}
-                    </span>
-                  ) : null}
-                </Link>
-              </TableHead>
-              <TableHead className="text-right">Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {sortedProducts.map((product) => (
-              <TableRow key={product.id}>
-                <TableCell>{product.id}</TableCell>
-                <TableCell>
-                  <div className="relative w-12 h-12 rounded overflow-hidden bg-muted">
-                    <Image
-                      src={resolvePublicImageUrl(product.image) ?? ""}
-                      alt={product.name}
-                      fill
-                      className="object-cover"
-                      unoptimized={(
-                        resolvePublicImageUrl(product.image) ?? ""
-                      ).includes("localhost")}
-                    />
-                  </div>
-                </TableCell>
-                <TableCell className="font-medium" title={product.name}>
-                  {product.name.substring(0, 30)}...
-                </TableCell>
-                <TableCell>{product.category?.name}</TableCell>
-                <TableCell>€{product.price}</TableCell>
-                <TableCell>
-                  <Badge variant={product.inStock ? "default" : "destructive"}>
-                    {product.inStock ? "In Stock" : "Out of Stock"}
-                  </Badge>
-                </TableCell>
-                <TableCell className="text-right">
-                  <div className="flex justify-end gap-2">
-                    <ProductFormModal product={product} />
-                    <DeleteProductButton productId={product.id} />
-                  </div>
-                </TableCell>
-              </TableRow>
-            ))}
-            {sortedProducts.length === 0 && (
-              <TableRow>
-                <TableCell colSpan={7} className="text-center py-8">
-                  No products found
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </div>
+      <ProductsTable
+        products={sortedProducts}
+        sortBy={sortBy}
+        sortOrder={sortOrder}
+        categoryId={categoryIdParam}
+      />
 
       {totalPages > 1 && (
         <div className="mt-8">

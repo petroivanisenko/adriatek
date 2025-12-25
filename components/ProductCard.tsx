@@ -18,92 +18,105 @@ import {
 import AddToCartButton from "./AddToCartButton";
 import Image from "next/image";
 import { resolvePublicImageUrl } from "@/lib/images";
+import { ShoppingCart } from "lucide-react";
 
 export default function ProductCard({ product }: { product: Product }) {
   const imageSrc = resolvePublicImageUrl(product.image) ?? "";
 
   return (
-    <Card key={product.id} className="relative flex flex-col h-full pt-0">
+    <Card key={product.id} className="group relative flex flex-col h-full bg-background border-primary/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 rounded-2xl overflow-hidden">
       <Link
         href={`/product/${product.id}`}
-        className="hover:text-primary flex flex-col grow"
+        className="flex flex-col grow"
       >
-        <div className="relative w-full aspect-square mb-4 bg-white rounded-t-lg overflow-hidden">
+        <div className="relative w-full aspect-square bg-white/50 overflow-hidden group-hover:bg-white transition-colors duration-500">
           <Image
             src={imageSrc}
             alt={product.name}
             fill
-            className="object-contain p-4"
+            className="object-contain p-8 transition-transform duration-700 group-hover:scale-110"
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             priority={false}
             unoptimized={imageSrc.includes("localhost")}
           />
+          {product.discount > 0 && (
+            <div className="absolute top-4 left-4">
+              <Badge
+                variant={"default"}
+                className="bg-primary text-primary-foreground font-bold px-3 py-1 rounded-lg"
+              >
+                -{product.discount}%
+              </Badge>
+            </div>
+          )}
+          {!product.inStock && (
+            <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px] flex items-center justify-center p-4">
+              <Badge variant="destructive" className="px-4 py-2 text-sm font-bold rounded-xl">
+                Out of Stock
+              </Badge>
+            </div>
+          )}
         </div>
 
-        <CardHeader className="px-4 grow">
-          {/* Rating display */}
-          <div className="flex items-center mb-2">
-            <Rating rating={product.rating || 0} size={16} />
-            <span className="text-xs ml-2 text-muted-foreground">
-              {product.rating ? `${product.rating.toFixed(1)}` : "No rating"}
-            </span>
+        <CardHeader className="px-6 py-6 grow">
+          <div className="flex items-center justify-between mb-3 text-xs uppercase tracking-wider font-semibold text-muted-foreground/60">
+            <div className="flex items-center">
+              <Rating rating={product.rating || 0} size={14} />
+              <span className="ml-2">
+                {product.rating ? `${product.rating.toFixed(1)}` : "0.0"}
+              </span>
+            </div>
+            {product.inStock && (
+              <span className="text-primary">Available</span>
+            )}
           </div>
 
-          <CardTitle className="text-base line-clamp-2" title={product.name}>
+          <CardTitle className="text-xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2" title={product.name}>
             {product.name}
           </CardTitle>
 
-          <CardDescription className="text-sm text-muted-foreground line-clamp-3 mt-1">
+          <CardDescription className="text-muted-foreground text-sm line-clamp-2 leading-relaxed">
             {product.description}
           </CardDescription>
         </CardHeader>
       </Link>
 
-      <CardFooter className="px-4 py-3 mt-auto">
-        <div className="w-full flex flex-col gap-3">
-          <div className="flex justify-between items-center">
-            <div>
-              <div className="flex flex-col">
-                {product.discount > 0 && (
-                  <div>
-                    <span className="text-sm text-muted-foreground line-through">
-                      {Math.round(
-                        product.price +
-                          (product.discount * product.price) / 100,
-                      )}{" "}
-                      €
-                    </span>
-                    <Badge
-                      variant={"default"}
-                      className="ml-2 py-1 px-2 text-xs"
-                    >
-                      -{product.discount}%
-                    </Badge>
-                  </div>
-                )}
-                <span className="text-lg font-bold">{product.price} €</span>
-              </div>
-              {/* Stock information */}
-              <Badge variant={!product.inStock ? "destructive" : "secondary"}>
-                {!product.inStock ? "Out of stock" : "In stock"}
-              </Badge>
-            </div>
-          </div>
-
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="w-full">
-                  <AddToCartButton product={product} quantity={1} />
-                </div>
-              </TooltipTrigger>
-              {!product.inStock && (
-                <TooltipContent>
-                  <p>Product out of stock</p>
-                </TooltipContent>
+      <CardFooter className="px-6 pb-8 pt-0 mt-auto">
+        <div className="w-full flex flex-col gap-4">
+          <div className="flex items-end justify-between">
+            <div className="flex flex-col">
+              {product.discount > 0 && (
+                <span className="text-sm text-muted-foreground line-through decoration-primary/30">
+                  {Math.round(
+                    product.price +
+                      (product.discount * product.price) / 100,
+                  )}{" "}
+                  €
+                </span>
               )}
-            </Tooltip>
-          </TooltipProvider>
+              <span className="text-2xl font-black text-foreground">
+                {product.price.toLocaleString()} €
+              </span>
+            </div>
+            
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <div className="pointer-events-auto">
+                    <AddToCartButton 
+                      product={product} 
+                      quantity={1} 
+                    />
+                  </div>
+                </TooltipTrigger>
+                {!product.inStock && (
+                  <TooltipContent>
+                    <p>Notify when available</p>
+                  </TooltipContent>
+                )}
+              </Tooltip>
+            </TooltipProvider>
+          </div>
         </div>
       </CardFooter>
     </Card>

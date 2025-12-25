@@ -16,6 +16,12 @@ const raleway = Raleway({
   subsets: ["latin"],
 });
 
+export const metadata = {
+  title: "Adriatek Limited | Premium Electronics",
+  description:
+    "Adriatek Limited - Your premier destination for high-end electronics, computers, and gadgets.",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,7 +30,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${onest.variable} ${raleway.variable} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+        >
           <div className="flex flex-col min-h-screen">
             <main className="flex-1">{children}</main>
             <Toaster />

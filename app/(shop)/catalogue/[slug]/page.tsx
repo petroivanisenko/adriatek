@@ -46,7 +46,7 @@ export default async function CategoryPage({
       initialProducts={products}
       initialTotal={total}
       categories={categories || []}
-      title={`${category.name} - ZoltanTech LTD`}
+      title={`${category.name} - Adriatek Limited`}
       currentCategory={category.id}
       minPrice={priceRange.min}
       maxPrice={priceRange.max}
@@ -78,7 +78,7 @@ export async function generateMetadata({
     };
 
   return {
-    title: `${category.name} - ZoltanTech LTD`,
-    description: `Browse our premium ${category.name} collection. High-end electronics for home and office from ZoltanTech LTD.`,
+    title: `${category.name} - Adriatek Limited`,
+    description: `Browse our premium ${category.name} collection. High-end electronics for home and office from Adriatek Limited.`,
   };
 }

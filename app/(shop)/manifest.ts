@@ -2,9 +2,9 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "ZoltanTech LTD",
-    short_name: "ZoltanTech",
-    description: "Premium electronics for home and office - ZoltanTech LTD",
+    name: "Adriatek Limited",
+    short_name: "Adriatek",
+    description: "Premium electronics for home and office - Adriatek Limited",
     start_url: "/",
     display: "standalone",
     background_color: "#fff",

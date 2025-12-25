@@ -3,7 +3,7 @@ import { getProducts } from "@/actions/product";
 import { getCategories } from "@/actions/category";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://zoltantech-ltd.com";
+  const baseUrl = "https://adriatek-limited.com";
 
   // 1. Static Routes
   const staticRoutes = [

@@ -32,24 +32,23 @@ export default function PrivacyPage() {
           </CardHeader>
           <CardContent className="prose prose-sm sm:prose max-w-none">
             <p>
-              This Privacy Policy explains how ZoltanTech LTD (&quot;we&quot;,
+              This Privacy Policy explains how Adriatek Limited (&quot;we&quot;,
               &quot;us&quot;, &quot;our&quot;, or &quot;Company&quot;) collects,
               uses, and protects personal data of individuals (&quot;User&quot;,
               &quot;you&quot;, or &quot;your&quot;) who use our website
-              zoltantech-ltd.com (the &quot;Site&quot;).
+              adriatek-limited.com (the &quot;Site&quot;).
             </p>
             <p>
               <strong>Company Details:</strong>
             </p>
             <ul>
-              <li>Company Name: ZoltanTech LTD</li>
-              <li>Company Number: 16887893</li>
+              <li>Company Name: Adriatek Limited</li>
+              <li>Company Number: 79144752</li>
               <li>
-                Registered Address: 3rd Floor, 86-90, Paul Street, London,
-                England, EC2A 4NE
+                Registered Address: RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI WAN ST FO TAN HONG KONG
               </li>
-              <li>Email: info@zoltantech-ltd.com</li>
-              <li>Phone: +44 7350814586</li>
+              <li>Email: info@adriatek-limited.com</li>
+              <li>Phone: +44 7350818336</li>
             </ul>
             <p>
               By using our Site and services, you consent to the collection,
@@ -295,7 +294,7 @@ export default function PrivacyPage() {
             </ul>
             <p>
               To exercise any of these rights, please contact us at
-              info@zoltantech-ltd.com with your request. We will respond within
+              info@adriatek-limited.com with your request. We will respond within
               30 days.
             </p>
           </CardContent>
@@ -307,9 +306,9 @@ export default function PrivacyPage() {
           </CardHeader>
           <CardContent className="prose prose-sm sm:prose max-w-none">
             <p>
-              ZoltanTech LTD is registered in England. When you use our
+              Adriatek Limited is registered in Hong Kong unless otherwise specified, but operates globally. When you use our
               services, your personal data may be transferred to and processed
-              in the United Kingdom.
+              in the United Kingdom or Hong Kong as necessary for business operations.
             </p>
             <p>
               We ensure appropriate safeguards are in place for international
@@ -371,7 +370,7 @@ export default function PrivacyPage() {
             <p>
               If you are a parent or guardian and believe your child has
               provided us with personal data, please contact us immediately at
-              info@zoltantech-ltd.com, and we will delete such information.
+              info@adriatek-limited.com, and we will delete such information.
             </p>
           </CardContent>
         </Card>
@@ -410,20 +409,19 @@ export default function PrivacyPage() {
             </p>
             <ul>
               <li>
-                <strong>Company Name:</strong> ZoltanTech LTD
+                <strong>Company Name:</strong> Adriatek Limited
               </li>
               <li>
-                <strong>Company Number:</strong> 16887893
+                <strong>Company Number:</strong> 79144752
               </li>
               <li>
-                <strong>Email:</strong> info@zoltantech-ltd.com
+                <strong>Email:</strong> info@adriatek-limited.com
               </li>
               <li>
-                <strong>Phone:</strong> +44 7350814586
+                <strong>Phone:</strong> +44 7350818336
               </li>
               <li>
-                <strong>Address:</strong> 3rd Floor, 86-90, Paul Street, London,
-                England, EC2A 4NE
+                <strong>Address:</strong> RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI WAN ST FO TAN HONG KONG
               </li>
               <li>
                 <strong>Working Hours:</strong> Monday-Friday: 9:00-18:00,
@@ -480,7 +478,7 @@ export default function PrivacyPage() {
 }
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - ZoltanTech LTD",
+  title: "Privacy Policy - Adriatek Limited",
   description:
-    "ZoltanTech LTD Privacy Policy. Learn how we collect, use, and protect your personal data in compliance with GDPR and UK Data Protection Act 2018.",
+    "Adriatek Limited Privacy Policy. Learn how we collect, use, and protect your personal data in compliance with GDPR and UK Data Protection Act 2018.",
 };
