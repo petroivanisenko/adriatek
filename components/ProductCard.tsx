@@ -18,18 +18,17 @@ import {
 import AddToCartButton from "./AddToCartButton";
 import Image from "next/image";
 import { resolvePublicImageUrl } from "@/lib/images";
-import { ShoppingCart } from "lucide-react";
 
 export default function ProductCard({ product }: { product: Product }) {
   const imageSrc = resolvePublicImageUrl(product.image) ?? "";
 
   return (
-    <Card key={product.id} className="group relative flex flex-col h-full bg-background border-primary/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 rounded-2xl overflow-hidden">
+    <Card key={product.id} className="group relative p-0 flex flex-col h-full bg-background border-primary/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 rounded-2xl overflow-hidden">
       <Link
         href={`/product/${product.id}`}
         className="flex flex-col grow"
       >
-        <div className="relative w-full aspect-square bg-white/50 overflow-hidden group-hover:bg-white transition-colors duration-500">
+        <div className="relative w-full aspect-square bg-white overflow-hidden group-hover:bg-white transition-colors duration-500">
           <Image
             src={imageSrc}
             alt={product.name}
