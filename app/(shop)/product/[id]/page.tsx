@@ -96,7 +96,7 @@ export default async function ProductPage({
               </div>
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-6 leading-tight">
+            <h1 className="text-2xl md:text-4xl font-black tracking-tighter mb-6 leading-tight">
               {product.name}
             </h1>
 
