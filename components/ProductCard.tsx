@@ -23,11 +23,11 @@ export default function ProductCard({ product }: { product: Product }) {
   const imageSrc = resolvePublicImageUrl(product.image) ?? "";
 
   return (
-    <Card key={product.id} className="group relative p-0 flex flex-col h-full bg-background border-primary/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 rounded-2xl overflow-hidden">
-      <Link
-        href={`/product/${product.id}`}
-        className="flex flex-col grow"
-      >
+    <Card
+      key={product.id}
+      className="group relative p-0 flex flex-col h-full bg-background border-primary/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 rounded-2xl overflow-hidden"
+    >
+      <Link href={`/product/${product.id}`} className="flex flex-col grow">
         <div className="relative w-full aspect-square bg-white overflow-hidden group-hover:bg-white transition-colors duration-500">
           <Image
             src={imageSrc}
@@ -50,7 +50,10 @@ export default function ProductCard({ product }: { product: Product }) {
           )}
           {!product.inStock && (
             <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px] flex items-center justify-center p-4">
-              <Badge variant="destructive" className="px-4 py-2 text-sm font-bold rounded-xl">
+              <Badge
+                variant="destructive"
+                className="px-4 py-2 text-sm font-bold rounded-xl"
+              >
                 Out of Stock
               </Badge>
             </div>
@@ -65,12 +68,13 @@ export default function ProductCard({ product }: { product: Product }) {
                 {product.rating ? `${product.rating.toFixed(1)}` : "0.0"}
               </span>
             </div>
-            {product.inStock && (
-              <span className="text-primary">Available</span>
-            )}
+            {product.inStock && <span className="text-primary">Available</span>}
           </div>
 
-          <CardTitle className="text-xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2" title={product.name}>
+          <CardTitle
+            className="text-xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2"
+            title={product.name}
+          >
             {product.name}
           </CardTitle>
 
@@ -87,8 +91,7 @@ export default function ProductCard({ product }: { product: Product }) {
               {product.discount > 0 && (
                 <span className="text-sm text-muted-foreground line-through decoration-primary/30">
                   {Math.round(
-                    product.price +
-                      (product.discount * product.price) / 100,
+                    product.price + (product.discount * product.price) / 100,
                   )}{" "}
                   €
                 </span>
@@ -97,15 +100,12 @@ export default function ProductCard({ product }: { product: Product }) {
                 {product.price.toLocaleString()} €
               </span>
             </div>
-            
+
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <div className="pointer-events-auto">
-                    <AddToCartButton 
-                      product={product} 
-                      quantity={1} 
-                    />
+                    <AddToCartButton product={product} quantity={1} />
                   </div>
                 </TooltipTrigger>
                 {!product.inStock && (

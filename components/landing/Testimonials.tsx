@@ -62,13 +62,6 @@ export default function Testimonials() {
                   &ldquo;{testimonial.text}&rdquo;
                 </p>
               </CardContent>
-              <CardFooter className="pt-0 text-sm text-muted-foreground/70">
-                {new Date(testimonial.date).toLocaleDateString(undefined, {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </CardFooter>
             </Card>
           ))}
         </div>

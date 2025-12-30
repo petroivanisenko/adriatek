@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
 import GoTop from "@/components/GoTop";
 import CookieConsent from "@/components/CookieConsent";
+import type { Metadata } from "next";
 
 const onest = Onest({
   variable: "--font-onest",
@@ -16,7 +17,7 @@ const raleway = Raleway({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Adriatek Limited | Premium Electronics",
   description:
     "Adriatek Limited - Your premier destination for high-end electronics, computers, and gadgets.",

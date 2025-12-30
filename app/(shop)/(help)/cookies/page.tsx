@@ -49,7 +49,8 @@ export default function CookiePolicyPage() {
               <li>Company Name: Adriatek Limited</li>
               <li>Company Number: 79144752</li>
               <li>
-                Registered Address: RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI WAN ST FO TAN HONG KONG
+                Registered Address: RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI
+                WAN ST FO TAN HONG KONG
               </li>
               <li>Email: info@adriatek-limited.com</li>
             </ul>
@@ -101,7 +102,7 @@ export default function CookiePolicyPage() {
               your language preference or the region you are in) and provide
               enhanced, more personalized features.
             </p>
-            <ul>
+            <ul >
               <li>Language preferences</li>
               <li>Theme preferences (light/dark mode)</li>
               <li>Region/location settings</li>
@@ -110,9 +111,13 @@ export default function CookiePolicyPage() {
 
             <h3>3.3 Performance and Analytics Cookies</h3>
             <p>
-              これらのクッキーは、訪問者が当サイトをどのように利用しているかに関する情報を収集します（どのページが最も頻繁に訪問されているかなど）。これにより、当サイトの動作を改善し、ユーザーの行動を理解することができます。
+              These cookies help us understand how visitors interact with our
+              Site by collecting information about page visits, time spent on
+              pages, click patterns, and error messages encountered. This
+              information is used to improve our Site's performance and user
+              experience.
             </p>
-            <ul>
+            <ul className="list-disc">
               <li>Page visit statistics</li>
               <li>Time spent on pages</li>
               <li>Click patterns</li>
@@ -337,7 +342,8 @@ export default function CookiePolicyPage() {
                 <strong>Phone:</strong> +44 7350818336
               </li>
               <li>
-                <strong>Address:</strong> RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI WAN ST FO TAN HONG KONG
+                <strong>Address:</strong> RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU
+                PUI WAN ST FO TAN HONG KONG
               </li>
               <li>
                 <strong>Working Hours:</strong> Monday-Friday: 9:00-18:00,

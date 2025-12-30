@@ -1,6 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useState, useTransition, Fragment } from "react";
+import {
+  useCallback,
+  useEffect,
+  useState,
+  useTransition,
+  Fragment,
+} from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -164,70 +170,69 @@ export default function CatalogueClient({
 
   return (
     <div className="bg-background min-h-screen">
-      <SetBreadcrumbs 
-        items={[
-          { label: "Catalogue", href: "/catalogue" }
-        ]}
-      />
+      <SetBreadcrumbs items={[{ label: "Catalogue", href: "/catalogue" }]} />
       {/* Immersive Editorial Header */}
       <div className="relative pt-32 pb-24 md:pt-48 md:pb-32 bg-slate-950 dark:bg-card overflow-hidden">
         <div className="absolute inset-0 bg-linear-to-b from-background/50 to-transparent pointer-events-none" />
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl">
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white dark:text-foreground tracking-tighter mb-8 leading-[0.85] capitalize">
               {title}
             </h1>
             <p className="text-white/60 dark:text-muted-foreground text-xl md:text-2xl font-medium leading-relaxed max-w-2xl border-l-2 border-primary/30 pl-8">
-              Technical excellence meets refined sourcing. Explore our collection 
-              of {totalProducts} professional-grade components.
+              Technical excellence meets refined sourcing. Explore our
+              collection of {totalProducts} professional-grade components.
             </p>
           </div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 -mt-10 mb-24 relative z-20">
-        <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
+        <div className="flex flex-col xl:flex-row gap-8 md:gap-12">
           {/* Sticky Technical Controls */}
-          <aside className="lg:w-80 shrink-0">
+          <aside className="xl:w-80 shrink-0">
             <div className="sticky top-24 space-y-6">
-               <div className="p-6 rounded-3xl bg-background border border-primary/10 shadow-xl shadow-primary/5">
-                  <div className="flex items-center justify-between mb-8 pb-4 border-b border-primary/5">
-                    <h2 className="font-black uppercase tracking-widest text-sm flex items-center gap-2">
-                       <SlidersHorizontalIcon className="size-4 text-primary" />
-                       Specs Filter
-                    </h2>
-                     <Badge variant="secondary" className="bg-primary/5 text-primary border-none font-bold">
-                        {totalProducts}
-                      </Badge>
-                  </div>
-                  
-                  <FilterPanel
-                    filterState={filterState}
-                    categories={categories}
-                    minPrice={minPrice}
-                    maxPrice={maxPrice}
-                    onFilterChange={handleFilterChange}
-                    onReset={resetFilters}
-                    isPending={isPending}
+              <div className="p-6 rounded-3xl bg-background border border-primary/10 shadow-xl shadow-primary/5">
+                <div className="flex items-center justify-between mb-8 pb-4 border-b border-primary/5">
+                  <h2 className="font-black uppercase tracking-widest text-sm flex items-center gap-2">
+                    <SlidersHorizontalIcon className="size-4 text-primary" />
+                    Specs Filter
+                  </h2>
+                  <Badge
+                    variant="secondary"
+                    className="bg-primary/5 text-primary border-none font-bold"
+                  >
+                    {totalProducts}
+                  </Badge>
+                </div>
+
+                <FilterPanel
+                  filterState={filterState}
+                  categories={categories}
+                  minPrice={minPrice}
+                  maxPrice={maxPrice}
+                  onFilterChange={handleFilterChange}
+                  onReset={resetFilters}
+                  isPending={isPending}
+                />
+
+                <div className="mt-8 pt-8 border-t border-primary/5 space-y-4">
+                  <SortSelector
+                    value={filterState.sortBy}
+                    onChange={(sortBy) => handleFilterChange({ sortBy })}
                   />
 
-                  <div className="mt-8 pt-8 border-t border-primary/5 space-y-4">
-                    <SortSelector
-                      value={filterState.sortBy}
-                      onChange={(sortBy) => handleFilterChange({ sortBy })}
-                    />
-                    
-                    <Button 
-                      variant="outline" 
-                      className="w-full h-12 rounded-xl lg:hidden"
-                      onClick={() => setShowFilters(false)}
-                    >
-                      Apply Filters
-                    </Button>
-                  </div>
-               </div>
+                  <Button
+                    variant="outline"
+                    className="w-full h-12 rounded-xl lg:hidden"
+                    onClick={() => setShowFilters(false)}
+                  >
+                    Apply Filters
+                  </Button>
+                </div>
+              </div>
             </div>
           </aside>
 
@@ -255,7 +260,6 @@ export default function CatalogueClient({
                     {products.map((product, idx) => (
                       <Fragment key={product.id}>
                         <ProductCard product={product} />
-                        {/* Integrated Technical Brief Injection */}
                         {(idx + 1) % 3 === 0 && idx !== products.length - 1 && (
                           <TechnicalBriefCard index={Math.floor(idx / 3)} />
                         )}
