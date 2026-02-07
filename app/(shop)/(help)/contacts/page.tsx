@@ -70,10 +70,10 @@ export default function ContactsPage() {
                 <CardContent>
                   <p>
                     <a
-                      href="tel:+447350814586"
+                      href="tel:+44 7350 814588"
                       className="text-primary hover:underline"
                     >
-                      +44 7350814586
+                      +44 7350 814588
                     </a>
                   </p>
                 </CardContent>

@@ -91,8 +91,8 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3 md:space-y-2 text-xs md:text-sm">
               <li className="text-muted-foreground">
-                <a href="tel:+447350814586" className="flex gap-1 items-center">
-                  <Phone size={16} /> +44 7350814586
+                <a href="tel:+44 7350 814588" className="flex gap-1 items-center">
+                  <Phone size={16} /> +44 7350 814588
                 </a>
               </li>
               <li className="text-muted-foreground">
