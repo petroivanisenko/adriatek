@@ -10,13 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import {
-  AtSignIcon,
-  ClockIcon,
-  MapPinIcon,
-  PhoneIcon,
-  SendIcon,
-} from "lucide-react";
+import { AtSignIcon, ClockIcon, MapPinIcon, SendIcon } from "lucide-react";
 import { SetBreadcrumbs } from "@/components/SetBreadcrumbs";
 import { Metadata } from "next";
 
@@ -56,25 +50,6 @@ export default function ContactsPage() {
                       Company Number:
                     </span>{" "}
                     16887893
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle className="flex items-center gap-2 text-lg">
-                    <PhoneIcon className="h-5 w-5 text-primary" />
-                    Phone
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    <a
-                      href="tel:+44 7350 814588"
-                      className="text-primary hover:underline"
-                    >
-                      +44 7350 814588
-                    </a>
                   </p>
                 </CardContent>
               </Card>

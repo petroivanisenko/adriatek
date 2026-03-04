@@ -84,17 +84,17 @@ export async function placeOrder(data: PlaceOrderParams) {
           </thead>
           <tbody>
             ${items
-        .map(
-          (item) => `
+              .map(
+                (item) => `
               <tr>
                 <td style="padding: 10px; border: 1px solid #ddd;">${item.product.name}</td>
                 <td style="padding: 10px; text-align: right; border: 1px solid #ddd;">${item.quantity}</td>
                 <td style="padding: 10px; text-align: right; border: 1px solid #ddd;">€${item.product.price}</td>
                 <td style="padding: 10px; text-align: right; border: 1px solid #ddd;">€${item.product.price * item.quantity}</td>
               </tr>
-            `
-        )
-        .join("")}
+            `,
+              )
+              .join("")}
           </tbody>
           <tfoot>
             <tr>
@@ -130,16 +130,16 @@ export async function placeOrder(data: PlaceOrderParams) {
           </thead>
           <tbody>
             ${items
-        .map(
-          (item) => `
+              .map(
+                (item) => `
               <tr style="border-bottom: 1px solid #eee;">
                 <td style="padding: 10px;">${item.product.name}</td>
                 <td style="padding: 10px; text-align: right;">${item.quantity}</td>
                 <td style="padding: 10px; text-align: right;">€${item.product.price}</td>
               </tr>
-            `
-        )
-        .join("")}
+            `,
+              )
+              .join("")}
           </tbody>
         </table>
 
@@ -148,7 +148,6 @@ export async function placeOrder(data: PlaceOrderParams) {
         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #666;">
           <p>ZoltanTech LTD</p>
           <p>3rd Floor, 86-90, Paul Street, London, England, EC2A 4NE</p>
-          <p>Phone: +44 7350 814588</p>
           <p>Email: info@zoltantech-ltd.com</p>
         </div>
       </div>
