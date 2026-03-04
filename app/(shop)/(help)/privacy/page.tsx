@@ -45,10 +45,10 @@ export default function PrivacyPage() {
               <li>Company Name: Adriatek Limited</li>
               <li>Company Number: 79144752</li>
               <li>
-                Registered Address: RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI WAN ST FO TAN HONG KONG
+                Registered Address: RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI
+                WAN ST FO TAN HONG KONG
               </li>
               <li>Email: info@adriatek-limited.com</li>
-              <li>Phone: +44 7350818336</li>
             </ul>
             <p>
               By using our Site and services, you consent to the collection,
@@ -294,8 +294,8 @@ export default function PrivacyPage() {
             </ul>
             <p>
               To exercise any of these rights, please contact us at
-              info@adriatek-limited.com with your request. We will respond within
-              30 days.
+              info@adriatek-limited.com with your request. We will respond
+              within 30 days.
             </p>
           </CardContent>
         </Card>
@@ -306,9 +306,10 @@ export default function PrivacyPage() {
           </CardHeader>
           <CardContent className="prose prose-sm sm:prose max-w-none">
             <p>
-              Adriatek Limited is registered in Hong Kong unless otherwise specified, but operates globally. When you use our
-              services, your personal data may be transferred to and processed
-              in the United Kingdom or Hong Kong as necessary for business operations.
+              Adriatek Limited is registered in Hong Kong unless otherwise
+              specified, but operates globally. When you use our services, your
+              personal data may be transferred to and processed in the United
+              Kingdom or Hong Kong as necessary for business operations.
             </p>
             <p>
               We ensure appropriate safeguards are in place for international
@@ -417,11 +418,10 @@ export default function PrivacyPage() {
               <li>
                 <strong>Email:</strong> info@adriatek-limited.com
               </li>
+              <li></li>
               <li>
-                <strong>Phone:</strong> +44 7350818336
-              </li>
-              <li>
-                <strong>Address:</strong> RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI WAN ST FO TAN HONG KONG
+                <strong>Address:</strong> RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU
+                PUI WAN ST FO TAN HONG KONG
               </li>
               <li>
                 <strong>Working Hours:</strong> Monday-Friday: 9:00-18:00,

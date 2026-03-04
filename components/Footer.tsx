@@ -1,4 +1,4 @@
-import { Clock, Mail, Phone, Pin } from "lucide-react";
+import { Clock, Mail, Pin } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
@@ -90,11 +90,6 @@ const Footer = () => {
               Contact Us
             </h3>
             <ul className="space-y-3 md:space-y-2 text-xs md:text-sm">
-              <li className="text-muted-foreground">
-                <a href="tel:+447350818336" className="flex gap-1 items-center">
-                  <Phone size={16} /> +44 7350818336
-                </a>
-              </li>
               <li className="text-muted-foreground">
                 <span className="flex gap-1 items-center">
                   <Pin size={16} /> RM 8, S-V, 6/F VALIANT IND

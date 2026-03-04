@@ -92,7 +92,7 @@ export async function placeOrder(data: PlaceOrderParams) {
                 <td style="padding: 10px; text-align: right; border: 1px solid #ddd;">€${item.product.price}</td>
                 <td style="padding: 10px; text-align: right; border: 1px solid #ddd;">€${item.product.price * item.quantity}</td>
               </tr>
-            `
+            `,
               )
               .join("")}
           </tbody>
@@ -137,7 +137,7 @@ export async function placeOrder(data: PlaceOrderParams) {
                 <td style="padding: 10px; text-align: right;">${item.quantity}</td>
                 <td style="padding: 10px; text-align: right;">€${item.product.price}</td>
               </tr>
-            `
+            `,
               )
               .join("")}
           </tbody>
@@ -148,7 +148,6 @@ export async function placeOrder(data: PlaceOrderParams) {
         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #666;">
           <p>Adriatek Limited</p>
           <p>RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI WAN ST FO TAN HONG KONG</p>
-          <p>Phone: +44 7350818336</p>
           <p>Email: info@adriatek-limited.com</p>
         </div>
       </div>

@@ -102,7 +102,7 @@ export default function CookiePolicyPage() {
               your language preference or the region you are in) and provide
               enhanced, more personalized features.
             </p>
-            <ul >
+            <ul>
               <li>Language preferences</li>
               <li>Theme preferences (light/dark mode)</li>
               <li>Region/location settings</li>
@@ -338,9 +338,7 @@ export default function CookiePolicyPage() {
               <li>
                 <strong>Email:</strong> info@adriatek-limited.com
               </li>
-              <li>
-                <strong>Phone:</strong> +44 7350818336
-              </li>
+              <li></li>
               <li>
                 <strong>Address:</strong> RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU
                 PUI WAN ST FO TAN HONG KONG

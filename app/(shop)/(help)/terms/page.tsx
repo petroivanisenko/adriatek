@@ -47,10 +47,11 @@ export default function TermsPage() {
               <li>Company Name: Adriatek Limited</li>
               <li>Company Number: 79144752</li>
               <li>
-                Registered Address: RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI WAN ST FO TAN HONG KONG
+                Registered Address: RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI
+                WAN ST FO TAN HONG KONG
               </li>
               <li>Email: info@adriatek-limited.com</li>
-              <li>Phone: +44 7350818336</li>
+
               <li>Working Hours: Mon-Fri 9:00-18:00, Sat 10:00-17:00</li>
             </ul>
             <p>
@@ -401,7 +402,8 @@ export default function TermsPage() {
             <p>To exercise your right of withdrawal:</p>
             <ol>
               <li>
-                Contact us at info@adriatek-limited.com within 14 days of receipt
+                Contact us at info@adriatek-limited.com within 14 days of
+                receipt
               </li>
               <li>State clearly that you wish to withdraw from the contract</li>
               <li>Provide your order number and product details</li>
@@ -609,7 +611,8 @@ export default function TermsPage() {
           <CardContent className="prose prose-sm sm:prose max-w-none">
             <p>
               These Terms shall be governed by and construed in accordance with
-              the laws of England and Wales, unless otherwise specified by mandatory consumer laws.
+              the laws of England and Wales, unless otherwise specified by
+              mandatory consumer laws.
             </p>
             <p>
               For consumer contracts with EU/UK residents, you also benefit from
@@ -619,8 +622,9 @@ export default function TermsPage() {
             <p>
               Any disputes arising from these Terms or your use of our services
               shall be subject to the exclusive jurisdiction of the courts of
-              England and Wales, or Hong Kong as applicable, except where EU/UK consumer protection laws
-              grant you the right to bring proceedings in your local courts.
+              England and Wales, or Hong Kong as applicable, except where EU/UK
+              consumer protection laws grant you the right to bring proceedings
+              in your local courts.
             </p>
           </CardContent>
         </Card>
@@ -667,11 +671,10 @@ export default function TermsPage() {
               <li>
                 <strong>Email:</strong> info@adriatek-limited.com
               </li>
+              <li></li>
               <li>
-                <strong>Phone:</strong> +44 7350818336
-              </li>
-              <li>
-                <strong>Address:</strong> RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI WAN ST FO TAN HONG KONG
+                <strong>Address:</strong> RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU
+                PUI WAN ST FO TAN HONG KONG
               </li>
               <li>
                 <strong>Working Hours:</strong> Monday-Friday: 9:00-18:00,
@@ -722,8 +725,8 @@ export default function TermsPage() {
             <p>
               These Terms, together with our Privacy Policy, Cookie Policy, and
               Delivery & Payment Information, constitute the entire agreement
-              between you and Adriatek Limited regarding your use of the Site and
-              purchase of products, superseding any prior agreements or
+              between you and Adriatek Limited regarding your use of the Site
+              and purchase of products, superseding any prior agreements or
               understandings.
             </p>
           </CardContent>
