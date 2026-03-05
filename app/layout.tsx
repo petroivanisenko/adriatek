@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import GoTop from "@/components/GoTop";
 import CookieConsent from "@/components/CookieConsent";
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const onest = Onest({
   variable: "--font-onest",
@@ -43,6 +44,7 @@ export default function RootLayout({
             <CookieConsent />
           </div>
         </ThemeProvider>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!} />
       </body>
     </html>
   );
