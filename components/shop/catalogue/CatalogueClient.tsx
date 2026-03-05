@@ -80,93 +80,181 @@ export default function CatalogueClient({
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
+  // ---------------------------------------------------------------------------
+  // Derive all filter state from URL params — this is the single source of truth
+  // ---------------------------------------------------------------------------
   const currentPage = parseInt(searchParams.get("page") || "1", 10);
+
+  const sortByParam = (searchParams.get("sortBy") ||
+    "popular") as FilterState["sortBy"];
+
+  const categoryIdsParam = searchParams
+    .getAll("categoryIds")
+    .map(Number)
+    .filter(Boolean);
+
+  const minPriceParam = searchParams.get("minPrice")
+    ? Number(searchParams.get("minPrice"))
+    : minPrice;
+  const maxPriceParam = searchParams.get("maxPrice")
+    ? Number(searchParams.get("maxPrice"))
+    : maxPrice;
+
+  // Local state only for the price range slider (debounced to avoid too many requests)
+  const [localPriceRange, setLocalPriceRange] = useState<[number, number]>([
+    minPriceParam,
+    maxPriceParam,
+  ]);
+  const [debouncedPriceRange] = useDebounceValue(localPriceRange, 500);
+
   const [products, setProducts] = useState<Product[]>(initialProducts);
   const [totalProducts, setTotalProducts] = useState(
     initialTotal ?? initialProducts.length,
   );
   const totalPages = Math.ceil(totalProducts / PRODUCTS_PER_PAGE);
 
-  const [filterState, setFilterState] = useState<FilterState>({
-    categoryIds: currentCategory ? [currentCategory] : [],
-    occasionIds: [],
-    priceRange: [minPrice, maxPrice],
-    sortBy: "popular",
-  });
+  // ---------------------------------------------------------------------------
+  // URL builder — keeps all filter params in the URL
+  // ---------------------------------------------------------------------------
+  const buildURL = useCallback(
+    (overrides: {
+      page?: number;
+      sortBy?: string;
+      categoryIds?: number[];
+      minPrice?: number;
+      maxPrice?: number;
+    }) => {
+      const params = new URLSearchParams();
 
-  const [debouncedPriceRange] = useDebounceValue(filterState.priceRange, 500);
+      const page = overrides.page ?? currentPage;
+      const sort = overrides.sortBy ?? sortByParam;
+      const cats =
+        overrides.categoryIds !== undefined
+          ? overrides.categoryIds
+          : categoryIdsParam;
+      const min =
+        overrides.minPrice !== undefined ? overrides.minPrice : minPriceParam;
+      const max =
+        overrides.maxPrice !== undefined ? overrides.maxPrice : maxPriceParam;
 
-  const createPageURL = useCallback(
-    (pageNumber: number | string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set("page", pageNumber.toString());
-      return `${pathname}?${params.toString()}`;
-    },
-    [pathname, searchParams],
-  );
+      if (page > 1) params.set("page", String(page));
+      if (sort !== "popular") params.set("sortBy", sort);
+      cats.forEach((id) => params.append("categoryIds", String(id)));
+      if (min !== minPrice) params.set("minPrice", String(min));
+      if (max !== maxPrice) params.set("maxPrice", String(max));
 
-  const fetchFilteredProducts = useCallback(
-    (resetPage = false) => {
-      startTransition(async () => {
-        const result = await getFilteredProducts({
-          categoryIds: filterState.categoryIds,
-          minPrice: filterState.priceRange[0],
-          maxPrice: filterState.priceRange[1],
-          sortBy: filterState.sortBy,
-          page: resetPage ? 1 : currentPage,
-          limit: PRODUCTS_PER_PAGE,
-        });
-
-        if (result && "products" in result) {
-          setProducts(result.products);
-          setTotalProducts(result.total);
-        } else if (Array.isArray(result)) {
-          setProducts(result);
-          setTotalProducts(result.length);
-        }
-
-        if (resetPage) {
-          const params = new URLSearchParams(searchParams.toString());
-          params.set("page", "1");
-          router.push(`${pathname}?${params.toString()}`, { scroll: false });
-        }
-      });
+      const qs = params.toString();
+      return `${pathname}${qs ? `?${qs}` : ""}`;
     },
     [
-      filterState.categoryIds,
-      filterState.priceRange,
-      filterState.sortBy,
-      router,
       pathname,
-      searchParams,
       currentPage,
+      sortByParam,
+      categoryIdsParam,
+      minPriceParam,
+      maxPriceParam,
+      minPrice,
+      maxPrice,
     ],
   );
 
-  const handleFilterChange = useCallback(
-    (updates: Partial<FilterState>, resetPage = true) => {
-      setFilterState((prev) => ({ ...prev, ...updates }));
+  const createPageURL = useCallback(
+    (pageNumber: number | string) => buildURL({ page: Number(pageNumber) }),
+    [buildURL],
+  );
 
-      if (!updates.priceRange) {
-        fetchFilteredProducts(resetPage);
+  // ---------------------------------------------------------------------------
+  // Fetch products whenever URL-derived filter values change
+  // ---------------------------------------------------------------------------
+  const fetchProducts = useCallback(() => {
+    startTransition(async () => {
+      const result = await getFilteredProducts({
+        categoryIds: categoryIdsParam,
+        minPrice: debouncedPriceRange[0],
+        maxPrice: debouncedPriceRange[1],
+        sortBy: sortByParam,
+        page: currentPage,
+        limit: PRODUCTS_PER_PAGE,
+      });
+
+      if (result && "products" in result) {
+        setProducts(result.products);
+        setTotalProducts(result.total);
+      } else if (Array.isArray(result)) {
+        setProducts(result);
+        setTotalProducts(result.length);
       }
+    });
+  }, [
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    JSON.stringify(categoryIdsParam),
+    debouncedPriceRange,
+    sortByParam,
+    currentPage,
+  ]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
+
+  // ---------------------------------------------------------------------------
+  // Filter change handlers — update the URL which triggers a re-fetch
+  // ---------------------------------------------------------------------------
+  const handleSortChange = useCallback(
+    (sortBy: FilterState["sortBy"]) => {
+      router.push(buildURL({ sortBy, page: 1 }), { scroll: false });
     },
-    [fetchFilteredProducts],
+    [router, buildURL],
+  );
+
+  const handleCategoryChange = useCallback(
+    (categoryIds: number[]) => {
+      router.push(buildURL({ categoryIds, page: 1 }), { scroll: false });
+    },
+    [router, buildURL],
+  );
+
+  const handlePriceChange = useCallback((range: [number, number]) => {
+    setLocalPriceRange(range);
+  }, []);
+
+  // When debounced price settles, push to URL
+  useEffect(() => {
+    router.push(
+      buildURL({
+        minPrice: debouncedPriceRange[0],
+        maxPrice: debouncedPriceRange[1],
+        page: 1,
+      }),
+      { scroll: false },
+    );
+    // We only want this to run when the debounced price changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedPriceRange]);
+
+  const handleFilterChange = useCallback(
+    (updates: Partial<FilterState>, _resetPage = true) => {
+      if (updates.sortBy !== undefined) handleSortChange(updates.sortBy);
+      if (updates.categoryIds !== undefined)
+        handleCategoryChange(updates.categoryIds);
+      if (updates.priceRange !== undefined)
+        handlePriceChange(updates.priceRange as [number, number]);
+    },
+    [handleSortChange, handleCategoryChange, handlePriceChange],
   );
 
   const resetFilters = useCallback(() => {
-    setFilterState({
-      categoryIds: [],
-      occasionIds: [],
-      priceRange: [minPrice, maxPrice],
-      sortBy: "popular",
-    });
-    fetchFilteredProducts(true);
-  }, [minPrice, maxPrice, fetchFilteredProducts]);
+    setLocalPriceRange([minPrice, maxPrice]);
+    router.push(pathname, { scroll: false });
+  }, [minPrice, maxPrice, router, pathname]);
 
-  useEffect(() => {
-    fetchFilteredProducts(false);
-  }, [debouncedPriceRange, currentPage, fetchFilteredProducts]);
+  // Derived filterState object (for passing to FilterPanel / SortSelector)
+  const filterState: FilterState = {
+    categoryIds: categoryIdsParam,
+    occasionIds: [],
+    priceRange: localPriceRange,
+    sortBy: sortByParam,
+  };
 
   return (
     <div className="bg-background min-h-screen">
@@ -221,7 +309,7 @@ export default function CatalogueClient({
                 <div className="mt-8 pt-8 border-t border-primary/5 space-y-4">
                   <SortSelector
                     value={filterState.sortBy}
-                    onChange={(sortBy) => handleFilterChange({ sortBy })}
+                    onChange={handleSortChange}
                   />
 
                   <Button
