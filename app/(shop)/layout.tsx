@@ -7,9 +7,9 @@ import { BreadcrumbProvider } from "@/components/BreadcrumbContext";
 import { LayoutBreadcrumbs } from "@/components/LayoutBreadcrumbs";
 
 export const metadata: Metadata = {
-  title: "ZoltanTech LTD - Electronics for Home and Office",
+  title: "Adriatek Limited - Premium Electronics for Home and Office",
   description:
-    "Premium electronics and tech equipment for home and office. Computers, laptops, gaming gadgets, TVs, home appliances, smart devices, and more.",
+    "Adriatek Limited - Your premier destination for high-end electronics, computers, and gadgets. Quality products with SEPA bank transfer and European delivery.",
   keywords: [
     "electronics",
     "computers",

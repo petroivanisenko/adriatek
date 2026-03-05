@@ -31,9 +31,9 @@ export default function CookiePolicyPage() {
           </CardHeader>
           <CardContent className="prose prose-sm sm:prose max-w-none">
             <p>
-              This Cookie Policy explains how ZoltanTech LTD (&quot;we&quot;,
+              This Cookie Policy explains how Adriatek Limited (&quot;we&quot;,
               &quot;us&quot;, or &quot;our&quot;) uses cookies and similar
-              technologies on our website zoltantech-ltd.com (the
+              technologies on our website adriatek-limited.com (the
               &quot;Site&quot;).
             </p>
             <p>
@@ -46,13 +46,13 @@ export default function CookiePolicyPage() {
               <strong>Company Details:</strong>
             </p>
             <ul>
-              <li>Company Name: ZoltanTech LTD</li>
-              <li>Company Number: 16887893</li>
+              <li>Company Name: Adriatek Limited</li>
+              <li>Company Number: 79144752</li>
               <li>
-                Registered Address: 3rd Floor, 86-90, Paul Street, London,
-                England, EC2A 4NE
+                Registered Address: RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI
+                WAN ST FO TAN HONG KONG
               </li>
-              <li>Email: info@zoltantech-ltd.com</li>
+              <li>Email: info@adriatek-limited.com</li>
             </ul>
           </CardContent>
         </Card>
@@ -111,11 +111,13 @@ export default function CookiePolicyPage() {
 
             <h3>3.3 Performance and Analytics Cookies</h3>
             <p>
-              These cookies collect information about how visitors use our Site,
-              such as which pages are visited most often. This helps us improve
-              how our Site works and understand user behavior.
+              These cookies help us understand how visitors interact with our
+              Site by collecting information about page visits, time spent on
+              pages, click patterns, and error messages encountered. This
+              information is used to improve our Site's performance and user
+              experience.
             </p>
-            <ul>
+            <ul className="list-disc">
               <li>Page visit statistics</li>
               <li>Time spent on pages</li>
               <li>Click patterns</li>
@@ -298,7 +300,7 @@ export default function CookiePolicyPage() {
             </ul>
             <p>
               To exercise any of these rights, please contact us at
-              info@zoltantech-ltd.com
+              info@adriatek-limited.com
             </p>
           </CardContent>
         </Card>
@@ -334,11 +336,12 @@ export default function CookiePolicyPage() {
             </p>
             <ul>
               <li>
-                <strong>Email:</strong> info@zoltantech-ltd.com
+                <strong>Email:</strong> info@adriatek-limited.com
               </li>
+              <li></li>
               <li>
-                <strong>Address:</strong> 3rd Floor, 86-90, Paul Street, London,
-                England, EC2A 4NE
+                <strong>Address:</strong> RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU
+                PUI WAN ST FO TAN HONG KONG
               </li>
               <li>
                 <strong>Working Hours:</strong> Monday-Friday: 9:00-18:00,
@@ -393,7 +396,7 @@ export default function CookiePolicyPage() {
 }
 
 export const metadata: Metadata = {
-  title: "Cookie Policy - ZoltanTech LTD",
+  title: "Cookie Policy - Adriatek Limited",
   description:
-    "Learn about how ZoltanTech LTD uses cookies and similar technologies on our website. GDPR-compliant cookie policy for European customers.",
+    "Learn about how Adriatek Limited uses cookies and similar technologies on our website. GDPR-compliant cookie policy for European customers.",
 };

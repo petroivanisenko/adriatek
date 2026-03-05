@@ -49,10 +49,10 @@ export async function sendContactEmail(
       </div>
     `;
 
-    // Send email to "info@zoltantech-ltd.com"
+    // Send email to "info@adriatek-limited.com"
     await transporter.sendMail({
-      from: '"ZoltanTech Contact" <info@zoltantech-ltd.com>',
-      to: "info@zoltantech-ltd.com",
+      from: '"Adriatek Contact" <info@adriatek-limited.com>',
+      to: "info@adriatek-limited.com",
       replyTo: email,
       subject: `New Contact Message from ${name}`,
       html: htmlContent,

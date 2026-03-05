@@ -110,7 +110,7 @@ export async function placeOrder(data: PlaceOrderParams) {
     const customerHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="text-align: center; margin-bottom: 20px;">
-          <h1 style="color: #333;">ZoltanTech LTD</h1>
+          <h1 style="color: #333;">Adriatek Limited</h1>
         </div>
 
         <p>Dear ${fullName},</p>
@@ -146,26 +146,26 @@ export async function placeOrder(data: PlaceOrderParams) {
         <p style="text-align: right; font-size: 18px; font-weight: bold;">Total Amount: €${totalAmount}</p>
 
         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #666;">
-          <p>ZoltanTech LTD</p>
-          <p>3rd Floor, 86-90, Paul Street, London, England, EC2A 4NE</p>
-          <p>Email: info@zoltantech-ltd.com</p>
+          <p>Adriatek Limited</p>
+          <p>RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI WAN ST FO TAN HONG KONG</p>
+          <p>Email: info@adriatek-limited.com</p>
         </div>
       </div>
     `;
 
     // Send email to Corporate
     await transporter.sendMail({
-      from: '"ZoltanTech Store" <noreply@zoltantech-ltd.com>',
-      to: "info@zoltantech-ltd.com",
+      from: '"Adriatek Store" <noreply@adriatek-limited.com>',
+      to: "info@adriatek-limited.com",
       subject: `New Order #${orderId} - Invoice Generated`,
       html: invoiceHtml,
     });
 
     // Send email to Customer
     await transporter.sendMail({
-      from: '"ZoltanTech LTD" <info@zoltantech-ltd.com>',
+      from: '"Adriatek Limited" <info@adriatek-limited.com>',
       to: email,
-      subject: "Thank you for your order! - ZoltanTech LTD",
+      subject: "Thank you for your order! - Adriatek Limited",
       html: customerHtml,
     });
 

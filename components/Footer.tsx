@@ -10,11 +10,11 @@ const Footer = () => {
           <div className="flex flex-col gap-2 items-center text-center col-span-2 xs:col-span-2 sm:col-span-2 md:col-span-1 mb-4 md:mb-0">
             <div className="flex gap-2 items-center">
               <h3 className="text-lg md:text-xl font-semibold text-muted-foreground">
-                ZoltanTech LTD
+                Adriatek Limited
               </h3>
             </div>
             <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4">
-              Electronics for home and office
+              Premium electronics for home and office
             </p>
           </div>
 
@@ -92,19 +92,19 @@ const Footer = () => {
             <ul className="space-y-3 md:space-y-2 text-xs md:text-sm">
               <li className="text-muted-foreground">
                 <span className="flex gap-1 items-center">
-                  <Pin size={16} /> 3rd Floor, 86-90, Paul Street
+                  <Pin size={16} /> RM 8, S-V, 6/F VALIANT IND
                   <br />
-                  London, England, EC2A 4NE
+                  CTR 2-12 AU PUI WAN ST FO TAN
                   <br />
-                  UNITED KINGDOM
+                  HONG KONG
                 </span>
               </li>
               <li className="text-muted-foreground">
                 <a
-                  href="mailto:info@zoltantech-ltd.com"
+                  href="mailto:info@adriatek-limited.com"
                   className="flex gap-1 items-center"
                 >
-                  <Mail size={16} /> info@zoltantech-ltd.com
+                  <Mail size={16} /> info@adriatek-limited.com
                 </a>
               </li>
               <li className="text-muted-foreground">
@@ -121,8 +121,8 @@ const Footer = () => {
         <div className="border-t pt-4 md:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3 md:gap-4">
             <p className="text-muted-foreground text-center sm:text-left text-xs sm:text-sm">
-              © {new Date().getFullYear()} ZoltanTech LTD. Company number:
-              16887893. All rights reserved.
+              © {new Date().getFullYear()} Adriatek Limited. Company number:
+              79144752. All rights reserved.
             </p>
             {/* Privacy and Terms links - always in a row */}
             <div className="flex flex-row gap-4 text-center sm:text-left text-xs sm:text-sm">

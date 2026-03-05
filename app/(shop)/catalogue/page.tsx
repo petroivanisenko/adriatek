@@ -42,7 +42,7 @@ export default async function CatalogPage({
 }
 
 export const metadata: Metadata = {
-  title: "Electronics Catalogue - ZoltanTech LTD",
+  title: "Electronics Catalogue - Adriatek Limited",
   description:
-    "Browse premium electronics for home and office. Computers, laptops, gaming equipment, TVs, appliances, and more from €1,000 to €7,000.",
+    "Browse premium electronics for home and office. Quality computers, laptops, and gadgets from Adriatek Limited. European delivery and SEPA payments.",
 };

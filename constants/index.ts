@@ -76,7 +76,6 @@ export const testimonials = [
     avatar: "/avatar1.webp",
     rating: 5,
     text: "Ordered professional equipment for our office. Great service and quality products!",
-    date: "2024-11-15",
   },
   {
     id: 2,
@@ -84,7 +83,6 @@ export const testimonials = [
     avatar: "/avatar2.webp",
     rating: 5,
     text: "Excellent selection of high-end laptops. Delivery was exactly as promised.",
-    date: "2024-10-22",
   },
   {
     id: 3,
@@ -92,7 +90,6 @@ export const testimonials = [
     avatar: "/avatar3.webp",
     rating: 5,
     text: "Professional approach and premium products. Highly recommended for business purchases!",
-    date: "2024-09-18",
   },
 ];
 

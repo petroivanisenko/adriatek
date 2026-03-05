@@ -1,6 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useState, useTransition } from "react";
+import {
+  useCallback,
+  useEffect,
+  useState,
+  useTransition,
+  Fragment,
+} from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,7 +16,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
-import { SlidersHorizontalIcon, SearchCheckIcon } from "lucide-react";
+import { SlidersHorizontalIcon, SearchCheckIcon, FilterX } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -23,6 +29,7 @@ import ProductCard from "@/components/ProductCard";
 import { Category, Product } from "@/generated/prisma";
 import { getFilteredProducts } from "@/actions/product";
 import { useDebounceValue } from "usehooks-ts";
+import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import {
@@ -39,6 +46,11 @@ import LoadingIndicator from "@/components/LoadingIndicator";
 import PaginationControl from "@/components/PaginationControl";
 import EmptyState from "@/components/EmptyState";
 import { FilterPanel } from "./filters/Filters";
+import { motion, AnimatePresence } from "framer-motion";
+import { Sparkles } from "lucide-react";
+import { TechnicalBriefCard } from "./BuyingGuides";
+import BuyingGuides from "./BuyingGuides";
+import { SetBreadcrumbs } from "@/components/SetBreadcrumbs";
 
 interface CatalogueClientProps {
   initialProducts: Product[];
@@ -122,7 +134,6 @@ export default function CatalogueClient({
     },
     [
       filterState.categoryIds,
-      filterState.occasionIds,
       filterState.priceRange,
       filterState.sortBy,
       router,
@@ -158,91 +169,45 @@ export default function CatalogueClient({
   }, [debouncedPriceRange, currentPage, fetchFilteredProducts]);
 
   return (
-    <div className="container min-h-screen mx-auto py-4 sm:py-6 md:py-8 px-4 sm:px-6 md:px-8">
-      <Breadcrumb className="mb-8">
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/">Home</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/catalogue">Catalogue</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+    <div className="bg-background min-h-screen">
+      <SetBreadcrumbs items={[{ label: "Catalogue", href: "/catalogue" }]} />
+      {/* Immersive Editorial Header */}
+      <div className="relative pt-32 pb-24 md:pt-48 md:pb-32 bg-slate-950 dark:bg-card overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-b from-background/50 to-transparent pointer-events-none" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4 sm:mb-6 md:mb-8">
-        <h1 className="text-2xl sm:text-2xl md:text-3xl font-bold">{title}</h1>
-
-        <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto">
-          <Button
-            variant="outline"
-            className="hidden lg:flex items-center"
-            onClick={() => setShowFilters(!showFilters)}
-          >
-            <SlidersHorizontalIcon className="h-4 w-4 mr-2" />
-            {showFilters ? "Hide Filters" : "Show Filters"}
-          </Button>
-
-          <SortSelector
-            value={filterState.sortBy}
-            onChange={(sortBy) => handleFilterChange({ sortBy })}
-          />
-
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="outline" className="sm:inline-flex lg:hidden">
-                <SlidersHorizontalIcon className="h-4 w-4 mr-2" />
-                Filters
-              </Button>
-            </SheetTrigger>
-
-            <SheetContent side="left" className="px-4 w-full">
-              <SheetHeader>
-                <SheetTitle className="flex gap-1 items-center">
-                  <SearchCheckIcon /> Found: {totalProducts}{" "}
-                  {totalProducts === 1 ? "product" : "products"}
-                </SheetTitle>
-                <SheetDescription>
-                  Search by category, price range.
-                </SheetDescription>
-              </SheetHeader>
-              <Separator />
-              <ScrollArea>
-                <FilterPanel
-                  filterState={filterState}
-                  categories={categories}
-                  minPrice={minPrice}
-                  maxPrice={maxPrice}
-                  onFilterChange={handleFilterChange}
-                  onReset={resetFilters}
-                  isPending={isPending}
-                />
-              </ScrollArea>
-            </SheetContent>
-          </Sheet>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white dark:text-foreground tracking-tighter mb-8 leading-[0.85] capitalize">
+              {title}
+            </h1>
+            <p className="text-white/60 dark:text-muted-foreground text-xl md:text-2xl font-medium leading-relaxed max-w-2xl border-l-2 border-primary/30 pl-8">
+              Technical excellence meets refined sourcing. Explore our
+              collection of {totalProducts} professional-grade components.
+            </p>
+          </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-        {showFilters && (
-          <div className="hidden lg:block">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex gap-1 items-center font-raleway">
-                  <SearchCheckIcon /> Found: {totalProducts}{" "}
-                  {totalProducts === 1 ? "product" : "products"}
-                </CardTitle>
-                <CardDescription>
-                  Search by category, price range.
-                </CardDescription>
-              </CardHeader>
-              <Separator />
-              <CardContent>
+      <div className="container mx-auto px-4 -mt-10 mb-24 relative z-20">
+        <div className="flex flex-col xl:flex-row gap-8 md:gap-12">
+          {/* Sticky Technical Controls */}
+          <aside className="xl:w-80 shrink-0">
+            <div className="sticky top-24 space-y-6">
+              <div className="p-6 rounded-3xl bg-background border border-primary/10 shadow-xl shadow-primary/5">
+                <div className="flex items-center justify-between mb-8 pb-4 border-b border-primary/5">
+                  <h2 className="font-black uppercase tracking-widest text-sm flex items-center gap-2">
+                    <SlidersHorizontalIcon className="size-4 text-primary" />
+                    Specs Filter
+                  </h2>
+                  <Badge
+                    variant="secondary"
+                    className="bg-primary/5 text-primary border-none font-bold"
+                  >
+                    {totalProducts}
+                  </Badge>
+                </div>
+
                 <FilterPanel
                   filterState={filterState}
                   categories={categories}
@@ -252,34 +217,74 @@ export default function CatalogueClient({
                   onReset={resetFilters}
                   isPending={isPending}
                 />
-              </CardContent>
-            </Card>
-          </div>
-        )}
 
-        <div className={showFilters ? "lg:col-span-3" : "lg:col-span-4"}>
-          {isPending ? (
-            <LoadingIndicator />
-          ) : products && products.length > 0 ? (
-            <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-                {products.map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
+                <div className="mt-8 pt-8 border-t border-primary/5 space-y-4">
+                  <SortSelector
+                    value={filterState.sortBy}
+                    onChange={(sortBy) => handleFilterChange({ sortBy })}
+                  />
+
+                  <Button
+                    variant="outline"
+                    className="w-full h-12 rounded-xl lg:hidden"
+                    onClick={() => setShowFilters(false)}
+                  >
+                    Apply Filters
+                  </Button>
+                </div>
               </div>
+            </div>
+          </aside>
 
-              {totalPages > 1 && (
-                <PaginationControl
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                  createPageURL={createPageURL}
-                />
+          {/* Product discovery flow */}
+          <div className="flex-1">
+            <AnimatePresence mode="wait">
+              {isPending ? (
+                <motion.div
+                  key="loading"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="py-20"
+                >
+                  <LoadingIndicator />
+                </motion.div>
+              ) : products && products.length > 0 ? (
+                <motion.div
+                  key="products"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="space-y-12"
+                >
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    {products.map((product, idx) => (
+                      <Fragment key={product.id}>
+                        <ProductCard product={product} />
+                        {(idx + 1) % 3 === 0 && idx !== products.length - 1 && (
+                          <TechnicalBriefCard index={Math.floor(idx / 3)} />
+                        )}
+                      </Fragment>
+                    ))}
+                  </div>
+
+                  {totalPages > 1 && (
+                    <div className="flex justify-center pt-12">
+                      <PaginationControl
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        createPageURL={createPageURL}
+                      />
+                    </div>
+                  )}
+                </motion.div>
+              ) : (
+                <EmptyState />
               )}
-            </>
-          ) : (
-            <EmptyState />
-          )}
+            </AnimatePresence>
+          </div>
         </div>
+
+        <BuyingGuides />
       </div>
     </div>
   );

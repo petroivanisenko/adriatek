@@ -35,22 +35,23 @@ export default function TermsPage() {
             <p>
               These Terms and Conditions (&quot;Terms&quot;) constitute a legal
               agreement between you (&quot;Customer&quot;, &quot;you&quot;, or
-              &quot;your&quot;) and ZoltanTech LTD (&quot;Company&quot;,
+              &quot;your&quot;) and Adriatek Limited (&quot;Company&quot;,
               &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) governing your
-              use of our website zoltantech-ltd.com (the &quot;Site&quot;) and
+              use of our website adriatek-limited.com (the &quot;Site&quot;) and
               the purchase of products.
             </p>
             <p>
               <strong>Company Details:</strong>
             </p>
             <ul>
-              <li>Company Name: ZoltanTech LTD</li>
-              <li>Company Number: 16887893</li>
+              <li>Company Name: Adriatek Limited</li>
+              <li>Company Number: 79144752</li>
               <li>
-                Registered Address: 3rd Floor, 86-90, Paul Street, London,
-                England, EC2A 4NE
+                Registered Address: RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI
+                WAN ST FO TAN HONG KONG
               </li>
-              <li>Email: info@zoltantech-ltd.com</li>
+              <li>Email: info@adriatek-limited.com</li>
+
               <li>Working Hours: Mon-Fri 9:00-18:00, Sat 10:00-17:00</li>
             </ul>
             <p>
@@ -69,7 +70,7 @@ export default function TermsPage() {
           <CardContent className="prose prose-sm sm:prose max-w-none">
             <h3>2.1 Product Range</h3>
             <p>
-              ZoltanTech LTD specializes in the distribution of premium
+              Adriatek Limited specializes in the distribution of premium
               electronics for home and office use. Our product range includes:
             </p>
             <ul>
@@ -147,7 +148,7 @@ export default function TermsPage() {
             <h3>3.3 Order Cancellation by Customer</h3>
             <p>
               You may cancel your order before making payment by contacting us
-              at info@zoltantech-ltd.com. Once payment is made and confirmed,
+              at info@adriatek-limited.com. Once payment is made and confirmed,
               orders cannot be cancelled unless the product is defective or as
               specified in Section 8 (Returns and Refunds).
             </p>
@@ -213,7 +214,7 @@ export default function TermsPage() {
               <li>
                 Include the payment reference number in your bank transfer
               </li>
-              <li>Send payment confirmation to info@zoltantech-ltd.com</li>
+              <li>Send payment confirmation to info@adriatek-limited.com</li>
               <li>
                 We verify payment receipt (1-2 business days) and confirm order
                 processing
@@ -251,7 +252,7 @@ export default function TermsPage() {
             <h3>5.1 Delivery Method</h3>
             <p>
               Products are delivered directly from authorized suppliers.
-              ZoltanTech LTD arranges delivery but does not physically handle
+              Adriatek Limited arranges delivery but does not physically handle
               the products. This ensures authenticity and proper manufacturer
               packaging.
             </p>
@@ -330,7 +331,7 @@ export default function TermsPage() {
               </li>
               <li>
                 Report any damage or missing items within 48 hours to
-                info@zoltantech-ltd.com
+                info@adriatek-limited.com
               </li>
               <li>Keep all original packaging for potential returns</li>
             </ul>
@@ -344,7 +345,7 @@ export default function TermsPage() {
           <CardContent className="prose prose-sm sm:prose max-w-none">
             <h3>6.1 Manufacturer Warranty</h3>
             <p>
-              All products sold by ZoltanTech LTD come with the manufacturer's
+              All products sold by Adriatek Limited come with the manufacturer's
               original warranty. Warranty period and terms are specified by the
               manufacturer and included with the product documentation.
             </p>
@@ -353,7 +354,7 @@ export default function TermsPage() {
             <p>For warranty claims, you must:</p>
             <ol>
               <li>
-                Contact us at info@zoltantech-ltd.com with your order number
+                Contact us at info@adriatek-limited.com with your order number
               </li>
               <li>Describe the defect or issue</li>
               <li>Provide proof of purchase (invoice)</li>
@@ -401,7 +402,8 @@ export default function TermsPage() {
             <p>To exercise your right of withdrawal:</p>
             <ol>
               <li>
-                Contact us at info@zoltantech-ltd.com within 14 days of receipt
+                Contact us at info@adriatek-limited.com within 14 days of
+                receipt
               </li>
               <li>State clearly that you wish to withdraw from the contract</li>
               <li>Provide your order number and product details</li>
@@ -503,7 +505,7 @@ export default function TermsPage() {
           <CardContent className="prose prose-sm sm:prose max-w-none">
             <h3>9.1 General Limitations</h3>
             <p>
-              To the maximum extent permitted by law, ZoltanTech LTD shall not
+              To the maximum extent permitted by law, Adriatek Limited shall not
               be liable for:
             </p>
             <ul>
@@ -544,7 +546,7 @@ export default function TermsPage() {
           <CardContent className="prose prose-sm sm:prose max-w-none">
             <p>
               All content on this Site, including text, graphics, logos, images,
-              and software, is the property of ZoltanTech LTD or its content
+              and software, is the property of Adriatek Limited or its content
               suppliers and is protected by international copyright laws.
             </p>
             <p>You may not:</p>
@@ -609,8 +611,8 @@ export default function TermsPage() {
           <CardContent className="prose prose-sm sm:prose max-w-none">
             <p>
               These Terms shall be governed by and construed in accordance with
-              the laws of England and Wales, without regard to conflict of law
-              principles.
+              the laws of England and Wales, unless otherwise specified by
+              mandatory consumer laws.
             </p>
             <p>
               For consumer contracts with EU/UK residents, you also benefit from
@@ -620,8 +622,9 @@ export default function TermsPage() {
             <p>
               Any disputes arising from these Terms or your use of our services
               shall be subject to the exclusive jurisdiction of the courts of
-              England and Wales, except where EU/UK consumer protection laws
-              grant you the right to bring proceedings in your local courts.
+              England and Wales, or Hong Kong as applicable, except where EU/UK
+              consumer protection laws grant you the right to bring proceedings
+              in your local courts.
             </p>
           </CardContent>
         </Card>
@@ -660,17 +663,17 @@ export default function TermsPage() {
             </p>
             <ul>
               <li>
-                <strong>Company Name:</strong> ZoltanTech LTD
+                <strong>Company Name:</strong> Adriatek Limited
               </li>
               <li>
-                <strong>Company Number:</strong> 16887893
+                <strong>Company Number:</strong> 79144752
               </li>
               <li>
-                <strong>Email:</strong> info@zoltantech-ltd.com
+                <strong>Email:</strong> info@adriatek-limited.com
               </li>
               <li>
-                <strong>Address:</strong> 3rd Floor, 86-90, Paul Street, London,
-                England, EC2A 4NE
+                <strong>Address:</strong> RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU
+                PUI WAN ST FO TAN HONG KONG
               </li>
               <li>
                 <strong>Working Hours:</strong> Monday-Friday: 9:00-18:00,
@@ -721,8 +724,8 @@ export default function TermsPage() {
             <p>
               These Terms, together with our Privacy Policy, Cookie Policy, and
               Delivery & Payment Information, constitute the entire agreement
-              between you and ZoltanTech LTD regarding your use of the Site and
-              purchase of products, superseding any prior agreements or
+              between you and Adriatek Limited regarding your use of the Site
+              and purchase of products, superseding any prior agreements or
               understandings.
             </p>
           </CardContent>
@@ -733,7 +736,7 @@ export default function TermsPage() {
 }
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions - ZoltanTech LTD",
+  title: "Terms & Conditions - Adriatek Limited",
   description:
-    "Read ZoltanTech LTD's Terms & Conditions. UK and EU compliant terms for electronics sales, SEPA payments, delivery, returns, and consumer rights.",
+    "Read Adriatek Limited's Terms & Conditions. UK and EU compliant terms for electronics sales, SEPA payments, delivery, returns, and consumer rights.",
 };
