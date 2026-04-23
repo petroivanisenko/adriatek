@@ -55,7 +55,8 @@ export default async function AdminProductsPage({
   const sortBy = validSortFields.includes(sortByParam as SortField)
     ? (sortByParam as SortField)
     : "id";
-  const sortOrder = sortOrderParam === "desc" ? "desc" : "asc" as "asc" | "desc";
+  const sortOrder =
+    sortOrderParam === "desc" ? "desc" : ("asc" as "asc" | "desc");
 
   const page = parseInt(params.page || "1", 10);
   const categoryIdParam = params.categoryId;
@@ -119,7 +120,9 @@ export default async function AdminProductsPage({
     <div className="container mx-auto py-10 px-8 lg:px-12 max-w-7xl">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
         <div>
-          <h1 className="text-4xl font-black tracking-tighter uppercase mb-2">Inventory Control</h1>
+          <h1 className="text-4xl font-black tracking-tighter uppercase mb-2">
+            Inventory Control
+          </h1>
           <div className="flex items-center gap-2 text-accent-foreground font-bold uppercase tracking-widest text-[10px] opacity-60">
             <span className="w-8 h-px bg-primary/30" />
             <span>Active SKU count: {total}</span>

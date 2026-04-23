@@ -73,7 +73,7 @@ export default async function ProductPage({
             unoptimized={imageSrc.includes("localhost")}
           />
           {hasDiscount && (
-             <div className="absolute top-8 left-8">
+            <div className="absolute top-8 left-8">
               <Badge className="bg-primary text-primary-foreground text-lg py-1 px-4 rounded-xl font-bold">
                 -{product.discount}%
               </Badge>
@@ -85,7 +85,10 @@ export default async function ProductPage({
         <div className="flex flex-col">
           <div className="mb-8">
             <div className="flex items-center gap-4 mb-4">
-               <Badge variant={!product.inStock ? "destructive" : "secondary"} className="rounded-lg px-3 py-1 font-bold">
+              <Badge
+                variant={!product.inStock ? "destructive" : "secondary"}
+                className="rounded-lg px-3 py-1 font-bold"
+              >
                 {!product.inStock ? "Currently Unavailable" : "Premium Series"}
               </Badge>
               <div className="flex items-center">
@@ -95,7 +98,7 @@ export default async function ProductPage({
                 </span>
               </div>
             </div>
-            
+
             <h1 className="text-2xl md:text-4xl font-black tracking-tighter mb-6 leading-tight">
               {product.name}
             </h1>
@@ -118,35 +121,49 @@ export default async function ProductPage({
             {product.inStock ? (
               <div className="space-y-6">
                 <AddProduct product={product} />
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-primary/5">
                   <div className="flex flex-col items-center p-4 rounded-2xl bg-muted/30 text-center">
                     <ShieldCheck className="size-6 text-primary mb-2" />
-                    <span className="text-xs font-bold uppercase tracking-widest opacity-60">Warranty</span>
-                    <span className="text-sm font-bold mt-1">2 Year Standard</span>
+                    <span className="text-xs font-bold uppercase tracking-widest opacity-60">
+                      Warranty
+                    </span>
+                    <span className="text-sm font-bold mt-1">
+                      2 Year Standard
+                    </span>
                   </div>
                   <div className="flex flex-col items-center p-4 rounded-2xl bg-muted/30 text-center">
                     <Truck className="size-6 text-primary mb-2" />
-                    <span className="text-xs font-bold uppercase tracking-widest opacity-60">Shipping</span>
+                    <span className="text-xs font-bold uppercase tracking-widest opacity-60">
+                      Shipping
+                    </span>
                     <span className="text-sm font-bold mt-1">EU Reliable</span>
                   </div>
                   <div className="flex flex-col items-center p-4 rounded-2xl bg-muted/30 text-center">
                     <Zap className="size-6 text-primary mb-2" />
-                    <span className="text-xs font-bold uppercase tracking-widest opacity-60">Support</span>
+                    <span className="text-xs font-bold uppercase tracking-widest opacity-60">
+                      Support
+                    </span>
                     <span className="text-sm font-bold mt-1">Tech Experts</span>
                   </div>
                 </div>
               </div>
             ) : (
               <div className="p-8 rounded-3xl bg-destructive/5 border border-destructive/10 text-center">
-                <p className="text-destructive font-bold text-lg">Product Currently Out of Stock</p>
-                <p className="text-muted-foreground mt-2">Check back soon for our next premium shipment.</p>
+                <p className="text-destructive font-bold text-lg">
+                  Product Currently Out of Stock
+                </p>
+                <p className="text-muted-foreground mt-2">
+                  Check back soon for our next premium shipment.
+                </p>
               </div>
             )}
           </div>
 
           <div className="mt-auto pt-8 border-t border-primary/5">
-            <h3 className="text-sm font-bold uppercase tracking-widest mb-4 opacity-40">Share this excellence</h3>
+            <h3 className="text-sm font-bold uppercase tracking-widest mb-4 opacity-40">
+              Share this excellence
+            </h3>
             <CopyLinkButton text="Copy Product Reference" />
           </div>
         </div>
@@ -156,13 +173,20 @@ export default async function ProductPage({
         <section className="mt-24 md:mt-40">
           <div className="flex items-end justify-between mb-12">
             <div>
-               <div className="inline-flex items-center justify-center space-x-2 text-primary font-bold uppercase tracking-widest text-xs mb-4">
+              <div className="inline-flex items-center justify-center space-x-2 text-primary font-bold uppercase tracking-widest text-xs mb-4">
                 <span className="w-12 h-px bg-primary" />
                 <span>You may also like</span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-black tracking-tight">Similar Tech</h2>
+              <h2 className="text-3xl md:text-5xl font-black tracking-tight">
+                Similar Tech
+              </h2>
             </div>
-            <Link href="/catalogue" className="text-primary font-bold hover:underline mb-2">View Full Catalog</Link>
+            <Link
+              href="/catalogue"
+              className="text-primary font-bold hover:underline mb-2"
+            >
+              View Full Catalog
+            </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {filteredSimilarProducts.map((product) => (
@@ -178,11 +202,13 @@ export default async function ProductPage({
             <span className="w-12 h-px bg-primary" />
             <span>Customer Experience</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight">Technical Reviews</h2>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight">
+            Technical Reviews
+          </h2>
         </div>
-        
+
         <NewComment productId={product.id} />
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-16">
           {comments?.length ? (
             comments.map((comment) => (

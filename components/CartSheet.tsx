@@ -16,7 +16,7 @@ import {
   EraserIcon,
   ShoppingCartIcon,
   ShieldCheck,
-  CreditCard
+  CreditCard,
 } from "lucide-react";
 import Link from "next/link";
 import { useCartStore } from "@/store/useCartStore";
@@ -51,7 +51,9 @@ export function CartSheet() {
               <ShoppingCartIcon className="size-6 text-primary" />
             </div>
             <div>
-              <SheetTitle className="text-2xl font-black tracking-tight">Shopping Cart</SheetTitle>
+              <SheetTitle className="text-2xl font-black tracking-tight">
+                Shopping Cart
+              </SheetTitle>
               <SheetDescription className="text-sm font-bold uppercase tracking-widest opacity-60">
                 {isNaN(cart.totalItems)
                   ? "Stock Mismatch Detected"
@@ -60,21 +62,29 @@ export function CartSheet() {
             </div>
           </div>
         </SheetHeader>
-        
+
         <Separator className="bg-primary/5" />
 
         {cart.items.length === 0 ? (
           <div className="flex flex-col items-center justify-center grow text-center p-8">
             <div className="size-24 rounded-3xl bg-muted/30 flex items-center justify-center mb-6">
-               <ShoppingCartIcon className="size-10 text-muted-foreground opacity-20" />
+              <ShoppingCartIcon className="size-10 text-muted-foreground opacity-20" />
             </div>
-            <h3 className="text-2xl font-black mb-2 tracking-tight">Standard State: Empty</h3>
+            <h3 className="text-2xl font-black mb-2 tracking-tight">
+              Standard State: Empty
+            </h3>
             <p className="text-muted-foreground mb-10 leading-relaxed font-medium">
-              Explore our curated selection of high-end electronics to start your allocation.
+              Explore our curated selection of high-end electronics to start
+              your allocation.
             </p>
-            <Button onClick={closeCart} asChild className="h-14 px-8 rounded-xl font-bold group shadow-xl shadow-primary/10">
+            <Button
+              onClick={closeCart}
+              asChild
+              className="h-14 px-8 rounded-xl font-bold group shadow-xl shadow-primary/10"
+            >
               <Link href="/catalogue">
-                Initialize Catalogue <ArrowRightIcon className="ml-2 size-4 transition-transform group-hover:translate-x-1" />{" "}
+                Initialize Catalogue{" "}
+                <ArrowRightIcon className="ml-2 size-4 transition-transform group-hover:translate-x-1" />{" "}
               </Link>
             </Button>
           </div>
@@ -101,29 +111,35 @@ export function CartSheet() {
             <div className="pt-6 border-t border-primary/5 space-y-6">
               <div className="space-y-4 bg-muted/30 p-6 rounded-[2rem] border border-primary/5">
                 <div className="flex justify-between items-end">
-                   <div className="flex flex-col">
-                      <span className="text-xs font-bold uppercase tracking-widest opacity-40 mb-1">Total Allocation</span>
-                      <span className="text-3xl font-black text-foreground">
-                        {isNaN(cart.totalPrice)
-                          ? "Value Error"
-                          : `${cart.totalPrice.toLocaleString()} €`}
-                      </span>
-                   </div>
-                   <div className="text-right">
-                      <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 block mb-1">Status</span>
-                      <span className="text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">READY TO PROCESS</span>
-                   </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs font-bold uppercase tracking-widest opacity-40 mb-1">
+                      Total Allocation
+                    </span>
+                    <span className="text-3xl font-black text-foreground">
+                      {isNaN(cart.totalPrice)
+                        ? "Value Error"
+                        : `${cart.totalPrice.toLocaleString()} €`}
+                    </span>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-[10px] font-bold uppercase tracking-widest opacity-40 block mb-1">
+                      Status
+                    </span>
+                    <span className="text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                      READY TO PROCESS
+                    </span>
+                  </div>
                 </div>
 
                 <div className="flex items-center gap-3 pt-4 text-[10px] font-medium text-muted-foreground uppercase tracking-widest">
-                   <div className="flex items-center gap-1">
-                      <CreditCard className="size-3 text-primary" />
-                      <span>SEPA Bank Only</span>
-                   </div>
-                   <div className="flex items-center gap-1">
-                      <ShieldCheck className="size-3 text-primary" />
-                      <span>EU Secure Delivery</span>
-                   </div>
+                  <div className="flex items-center gap-1">
+                    <CreditCard className="size-3 text-primary" />
+                    <span>SEPA Bank Only</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <ShieldCheck className="size-3 text-primary" />
+                    <span>EU Secure Delivery</span>
+                  </div>
                 </div>
               </div>
 
@@ -140,14 +156,22 @@ export function CartSheet() {
                   </DialogTrigger>
                   <DialogContent className="rounded-3xl border-primary/10">
                     <DialogHeader>
-                      <DialogTitle className="text-2xl font-black">Flush Cart Data?</DialogTitle>
+                      <DialogTitle className="text-2xl font-black">
+                        Flush Cart Data?
+                      </DialogTitle>
                       <DialogDescription className="text-base font-medium">
-                        This action will terminate your current shopping session and remove all allocated units.
+                        This action will terminate your current shopping session
+                        and remove all allocated units.
                       </DialogDescription>
                     </DialogHeader>
                     <div className="flex flex-col gap-6 pt-4">
                       <div className="flex justify-end gap-3">
-                         <Button variant="ghost" className="font-bold rounded-xl h-12">Cancel Operation</Button>
+                        <Button
+                          variant="ghost"
+                          className="font-bold rounded-xl h-12"
+                        >
+                          Cancel Operation
+                        </Button>
                         <Button
                           variant="destructive"
                           className="font-black rounded-xl h-12 px-8"
@@ -166,10 +190,7 @@ export function CartSheet() {
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Link
-                        href="/checkout"
-                        className="flex-1"
-                      >
+                      <Link href="/checkout" className="flex-1">
                         <Button
                           size="lg"
                           className="w-full h-14 rounded-xl font-black tracking-tight shadow-xl shadow-primary/20 transition-all hover:scale-[1.02]"

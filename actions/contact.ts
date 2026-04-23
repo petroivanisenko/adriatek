@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 
 export async function sendContactEmail(
   _prevState: any,
-  formData: FormData
+  formData: FormData,
 ): Promise<{ success: boolean; message: string }> {
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;
@@ -49,10 +49,10 @@ export async function sendContactEmail(
       </div>
     `;
 
-    // Send email to "info@adriatek-limited.com"
+    // Send email to "support@adriatek-limited.com"
     await transporter.sendMail({
-      from: '"Adriatek Contact" <info@adriatek-limited.com>',
-      to: "info@adriatek-limited.com",
+      from: '"Adriatek Contact" <support@adriatek-limited.com>',
+      to: "support@adriatek-limited.com",
       replyTo: email,
       subject: `New Contact Message from ${name}`,
       html: htmlContent,

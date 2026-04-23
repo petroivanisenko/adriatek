@@ -26,7 +26,7 @@ export default function CartItem({
 }) {
   const { removeItem } = useCartStore();
   const imageSrc = resolvePublicImageUrl(product.image) ?? "";
-  
+
   const originalPrice = Math.round(
     product.price * (1 + product.discount / 100),
   );
@@ -50,30 +50,38 @@ export default function CartItem({
       </Link>
       <div className="grow flex flex-col justify-between py-1">
         <div>
-           <div className="flex justify-between items-start gap-2 mb-1">
-              <h4 className="font-bold text-sm leading-tight line-clamp-2 uppercase tracking-tight">{product.name}</h4>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="size-7 text-muted-foreground hover:bg-destructive/10 hover:text-destructive shrink-0 rounded-lg"
-                onClick={() => {
-                  toast.error("Unit Released", {
-                    description: `${product.name} removed from your allocation.`,
-                  });
-                  removeItem(productId);
-                }}
-              >
-                <Trash2Icon className="size-4" />
-              </Button>
-           </div>
-          
-           <div className="flex items-center gap-2 mb-2">
+          <div className="flex justify-between items-start gap-2 mb-1">
+            <h4 className="font-bold text-sm leading-tight line-clamp-2 uppercase tracking-tight">
+              {product.name}
+            </h4>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="size-7 text-muted-foreground hover:bg-destructive/10 hover:text-destructive shrink-0 rounded-lg"
+              onClick={() => {
+                toast.error("Unit Released", {
+                  description: `${product.name} removed from your allocation.`,
+                });
+                removeItem(productId);
+              }}
+            >
+              <Trash2Icon className="size-4" />
+            </Button>
+          </div>
+
+          <div className="flex items-center gap-2 mb-2">
             {!product.inStock ? (
-              <Badge variant="destructive" className="bg-destructive/10 text-destructive border-destructive/20 text-[9px] uppercase tracking-widest font-black py-0 px-2">
+              <Badge
+                variant="destructive"
+                className="bg-destructive/10 text-destructive border-destructive/20 text-[9px] uppercase tracking-widest font-black py-0 px-2"
+              >
                 Unavailable
               </Badge>
             ) : (
-               <Badge variant="secondary" className="bg-primary/5 text-primary border-primary/10 text-[9px] uppercase tracking-widest font-black py-0 px-2">
+              <Badge
+                variant="secondary"
+                className="bg-primary/5 text-primary border-primary/10 text-[9px] uppercase tracking-widest font-black py-0 px-2"
+              >
                 Premium Stock
               </Badge>
             )}
@@ -83,7 +91,9 @@ export default function CartItem({
         <div className="flex justify-between items-center mt-2 pt-2 border-t border-primary/5">
           <div className="flex flex-col">
             <div className="flex items-center gap-2">
-              <span className="font-black text-base text-foreground">{product.price.toLocaleString()} €</span>
+              <span className="font-black text-base text-foreground">
+                {product.price.toLocaleString()} €
+              </span>
               {hasDiscount && (
                 <span className="text-[10px] text-muted-foreground line-through opacity-50 font-medium">
                   {originalPrice.toLocaleString()} €
@@ -91,13 +101,17 @@ export default function CartItem({
               )}
             </div>
             {hasDiscount && (
-               <div className="flex items-center gap-1">
-                  <span className="text-[10px] font-black text-primary bg-primary/5 px-1 rounded">-{product.discount}%</span>
-                  <span className="text-[9px] font-bold uppercase tracking-widest opacity-40">Applied</span>
-               </div>
+              <div className="flex items-center gap-1">
+                <span className="text-[10px] font-black text-primary bg-primary/5 px-1 rounded">
+                  -{product.discount}%
+                </span>
+                <span className="text-[9px] font-bold uppercase tracking-widest opacity-40">
+                  Applied
+                </span>
+              </div>
             )}
           </div>
-          
+
           <ProductQuantity
             product={product}
             quantity={quantity}

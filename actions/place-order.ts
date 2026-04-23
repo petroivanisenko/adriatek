@@ -148,7 +148,7 @@ export async function placeOrder(data: PlaceOrderParams) {
         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #666;">
           <p>Adriatek Limited</p>
           <p>RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI WAN ST FO TAN HONG KONG</p>
-          <p>Email: info@adriatek-limited.com</p>
+          <p>Email: support@adriatek-limited.com</p>
         </div>
       </div>
     `;
@@ -156,14 +156,14 @@ export async function placeOrder(data: PlaceOrderParams) {
     // Send email to Corporate
     await transporter.sendMail({
       from: '"Adriatek Store" <noreply@adriatek-limited.com>',
-      to: "info@adriatek-limited.com",
+      to: "support@adriatek-limited.com",
       subject: `New Order #${orderId} - Invoice Generated`,
       html: invoiceHtml,
     });
 
     // Send email to Customer
     await transporter.sendMail({
-      from: '"Adriatek Limited" <info@adriatek-limited.com>',
+      from: '"Adriatek Limited" <support@adriatek-limited.com>',
       to: email,
       subject: "Thank you for your order! - Adriatek Limited",
       html: customerHtml,

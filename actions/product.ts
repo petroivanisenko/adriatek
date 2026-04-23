@@ -26,7 +26,7 @@ export type PaginatedProducts = {
 };
 
 export async function getFilteredProducts(
-  filters: ProductFilterParams = {}
+  filters: ProductFilterParams = {},
 ): Promise<ProductWithCategory[] | PaginatedProducts | null> {
   const {
     categoryIds = [],
@@ -94,7 +94,7 @@ export async function getFilteredProducts(
 export async function getProducts(
   page?: number,
   limit?: number,
-  categoryId?: number
+  categoryId?: number,
 ): Promise<ProductWithCategory[] | PaginatedProducts | null> {
   return getFilteredProducts({
     page,
@@ -114,7 +114,7 @@ export async function getPopularProducts() {
 }
 
 export async function getProduct(
-  id: number
+  id: number,
 ): Promise<ProductWithCategory | null> {
   try {
     return await prisma.product.findUnique({
@@ -130,7 +130,7 @@ export async function getProduct(
 }
 
 export async function getSimilarProducts(
-  categoryId: number
+  categoryId: number,
 ): Promise<ProductWithCategory[]> {
   const result = await getFilteredProducts({
     categoryIds: [categoryId],
@@ -140,7 +140,7 @@ export async function getSimilarProducts(
 }
 
 export async function searchProducts(
-  query: string
+  query: string,
 ): Promise<ProductWithCategory[]> {
   const result = await getFilteredProducts({
     searchQuery: query,
@@ -183,7 +183,7 @@ function parseProductFormData(formData: FormData) {
 
 async function processProductImage(
   imageFile: File | string | null,
-  existingImageUrl?: string
+  existingImageUrl?: string,
 ): Promise<string | undefined> {
   if (!imageFile) return undefined;
 
@@ -257,7 +257,7 @@ export async function updateProduct(id: number, formData: FormData) {
 
   const imageUrl = await processProductImage(
     imageFile,
-    existingProduct?.image || undefined
+    existingProduct?.image || undefined,
   );
 
   await prisma.product.update({

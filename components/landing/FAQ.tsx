@@ -21,8 +21,7 @@ const faqs = [
   },
   {
     question: "What payment methods do you accept?",
-    answer:
-      "We accept only SEPA transfers",
+    answer: "We accept only SEPA transfers",
   },
 ];
 

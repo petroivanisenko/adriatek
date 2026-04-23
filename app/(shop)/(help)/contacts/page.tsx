@@ -67,10 +67,10 @@ export default function ContactsPage() {
                   Inquiry Channel
                 </h3>
                 <a
-                  href="mailto:info@adriatek-limited.com"
+                  href="mailto:support@adriatek-limited.com"
                   className="text-xl font-black hover:text-primary transition-colors break-all"
                 >
-                  info@adriatek-limited.com
+                  support@adriatek-limited.com
                 </a>
                 <p className="text-xs font-bold mt-2 opacity-60">
                   24h Response Target

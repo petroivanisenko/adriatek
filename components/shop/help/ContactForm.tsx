@@ -15,7 +15,7 @@ export function ContactForm() {
   useEffect(() => {
     if (state?.success) {
       toast.success(state.message);
-     const form = document.querySelector("form") as HTMLFormElement;
+      const form = document.querySelector("form") as HTMLFormElement;
       if (form) form.reset();
     } else if (state?.success === false) {
       toast.error(state.message);

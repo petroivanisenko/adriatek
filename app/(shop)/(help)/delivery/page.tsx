@@ -330,7 +330,7 @@ export default function DeliveryPaymentPage() {
                       <p className="text-[10px] font-black uppercase tracking-widest opacity-40 mb-1">
                         Inquiry Thread
                       </p>
-                      <p className="font-bold">info@adriatek-limited.com</p>
+                      <p className="font-bold">support@adriatek-limited.com</p>
                     </div>
                   </div>
                   <div className="flex gap-4 group/item cursor-pointer">

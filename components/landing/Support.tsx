@@ -33,17 +33,19 @@ export default function Support() {
                 Technical Inquiry
               </h3>
               <p className="text-white/80 text-lg leading-relaxed mb-10">
-                Have a specific technical requirement or need a custom build 
+                Have a specific technical requirement or need a custom build
                 configured? Our engineering team is ready to assist.
               </p>
             </div>
-            
+
             <div className="relative z-10 space-y-6">
               <div className="flex items-center gap-4">
                 <div className="size-10 rounded-full bg-white/10 flex items-center justify-center">
-                   <span className="text-sm font-bold">@</span>
+                  <span className="text-sm font-bold">@</span>
                 </div>
-                <span className="font-medium">info@adriatek-limited.com</span>
+                <span className="font-medium">
+                  support@adriatek-limited.com
+                </span>
               </div>
             </div>
           </div>
@@ -52,43 +54,58 @@ export default function Support() {
             <form action={action} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <label htmlFor="name" className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Full Name</label>
-                  <Input 
-                    type="text" 
-                    id="name" 
-                    name="name" 
-                    placeholder="John Doe" 
-                    required 
+                  <label
+                    htmlFor="name"
+                    className="text-sm font-bold uppercase tracking-widest text-muted-foreground"
+                  >
+                    Full Name
+                  </label>
+                  <Input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="John Doe"
+                    required
                     className="h-14 rounded-xl border-primary/10 bg-muted/20 focus:bg-background transition-all"
                   />
                 </div>
                 <div className="space-y-3">
-                  <label htmlFor="email" className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Email Address</label>
-                  <Input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    placeholder="john@example.com" 
-                    required 
+                  <label
+                    htmlFor="email"
+                    className="text-sm font-bold uppercase tracking-widest text-muted-foreground"
+                  >
+                    Email Address
+                  </label>
+                  <Input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="john@example.com"
+                    required
                     className="h-14 rounded-xl border-primary/10 bg-muted/20 focus:bg-background transition-all"
                   />
                 </div>
               </div>
 
               <div className="space-y-3">
-                <label htmlFor="message" className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Message</label>
-                <Textarea 
-                  id="message" 
-                  name="message" 
-                  placeholder="Describe your technical requirements or question..." 
-                  required 
+                <label
+                  htmlFor="message"
+                  className="text-sm font-bold uppercase tracking-widest text-muted-foreground"
+                >
+                  Message
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  placeholder="Describe your technical requirements or question..."
+                  required
                   rows={6}
                   className="rounded-xl border-primary/10 bg-muted/20 focus:bg-background transition-all resize-none p-4"
                 />
               </div>
 
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 disabled={isPending}
                 className="w-full h-16 rounded-2xl text-lg font-bold flex items-center justify-center gap-3 transition-all hover:scale-[1.02] active:scale-[0.98]"
               >

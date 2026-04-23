@@ -78,13 +78,17 @@ export default function Search() {
       {isOpen && results.length > 0 && (
         <div className="absolute z-50 mt-3 w-full bg-background/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-primary/5 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-300">
           <div className="p-4 border-b border-primary/5">
-            <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground opacity-50">Search Results</p>
+            <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground opacity-50">
+              Search Results
+            </p>
           </div>
           <ul className="max-h-[60vh] overflow-auto py-2 custom-scrollbar">
             {results.map((product) => {
-              const originalPrice = Math.round(product.price * (1 + product.discount / 100));
+              const originalPrice = Math.round(
+                product.price * (1 + product.discount / 100),
+              );
               const hasDiscount = product.discount > 0;
-              
+
               return (
                 <li key={product.id} onClick={() => setIsOpen(false)}>
                   <Link
@@ -107,7 +111,7 @@ export default function Search() {
                         ).includes("localhost")}
                       />
                     </div>
-                    
+
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-bold truncate group-hover:text-primary transition-colors mb-1 uppercase tracking-tight">
                         {product.name}
@@ -117,24 +121,36 @@ export default function Search() {
                           {product.price.toLocaleString()} €
                         </span>
                         {hasDiscount && (
-                           <span className="text-[10px] text-muted-foreground line-through opacity-50">
-                             {originalPrice.toLocaleString()} €
-                           </span>
+                          <span className="text-[10px] text-muted-foreground line-through opacity-50">
+                            {originalPrice.toLocaleString()} €
+                          </span>
                         )}
                         {!product.inStock ? (
-                           <Badge variant="destructive" className="text-[8px] uppercase font-black py-0 px-1.5 h-4">OUT</Badge>
+                          <Badge
+                            variant="destructive"
+                            className="text-[8px] uppercase font-black py-0 px-1.5 h-4"
+                          >
+                            OUT
+                          </Badge>
                         ) : (
-                           <Badge variant="secondary" className="text-[8px] uppercase font-black py-0 px-1.5 h-4 bg-primary/5 text-primary border-primary/10">STK</Badge>
+                          <Badge
+                            variant="secondary"
+                            className="text-[8px] uppercase font-black py-0 px-1.5 h-4 bg-primary/5 text-primary border-primary/10"
+                          >
+                            STK
+                          </Badge>
                         )}
                       </div>
                     </div>
                   </Link>
                 </li>
-              )
+              );
             })}
           </ul>
           <div className="p-3 bg-muted/30 text-center">
-            <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Adriatek Limited | Operational Index</p>
+            <p className="text-[8px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+              Adriatek Limited | Operational Index
+            </p>
           </div>
         </div>
       )}
@@ -145,7 +161,10 @@ export default function Search() {
             <SearchIcon className="size-6 text-muted-foreground opacity-20" />
           </div>
           <p className="text-sm font-bold text-muted-foreground">
-            No technical matching found for: <span className="text-primary">&quot;{debouncedSearchTerm}&quot;</span>
+            No technical matching found for:{" "}
+            <span className="text-primary">
+              &quot;{debouncedSearchTerm}&quot;
+            </span>
           </p>
         </div>
       )}

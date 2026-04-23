@@ -9,12 +9,7 @@ import {
   X,
 } from "lucide-react";
 import { Button } from "./ui/button";
-import {
-  Sheet,
-  SheetTrigger,
-  SheetContent,
-  SheetClose,
-} from "./ui/sheet";
+import { Sheet, SheetTrigger, SheetContent, SheetClose } from "./ui/sheet";
 import Link from "next/link";
 import Search from "./Search";
 import { motion, AnimatePresence } from "framer-motion";
@@ -30,16 +25,16 @@ export default function MobileMenu() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button 
-          variant="ghost" 
-          size="icon" 
+        <Button
+          variant="ghost"
+          size="icon"
           className="xl:hidden size-10 rounded-xl bg-background/50 backdrop-blur-md border border-primary/10 hover:bg-primary/5 hover:border-primary/20 transition-all duration-300"
         >
           <MenuIcon className="size-5 text-foreground" />
         </Button>
       </SheetTrigger>
-      <SheetContent 
-        side="right" 
+      <SheetContent
+        side="right"
         className="w-full sm:max-w-md border-l border-primary/10 bg-background/80 backdrop-blur-2xl p-0 flex flex-col"
       >
         <div className="p-6 flex flex-col h-full">

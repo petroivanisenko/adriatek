@@ -101,10 +101,10 @@ const Footer = () => {
               </li>
               <li className="text-muted-foreground">
                 <a
-                  href="mailto:info@adriatek-limited.com"
+                  href="mailto:support@adriatek-limited.com"
                   className="flex gap-1 items-center"
                 >
-                  <Mail size={16} /> info@adriatek-limited.com
+                  <Mail size={16} /> support@adriatek-limited.com
                 </a>
               </li>
               <li className="text-muted-foreground">

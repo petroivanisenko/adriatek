@@ -15,7 +15,11 @@ interface BreadcrumbContextType {
 
 const BreadcrumbContext = createContext<BreadcrumbContextType | null>(null);
 
-export function BreadcrumbProvider({ children }: { children: React.ReactNode }) {
+export function BreadcrumbProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [items, setItemsState] = useState<BreadcrumbItem[]>([]);
 
   const setItems = useCallback((newItems: BreadcrumbItem[]) => {

@@ -48,7 +48,7 @@ export default function PrivacyPage() {
                 Registered Address: RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI
                 WAN ST FO TAN HONG KONG
               </li>
-              <li>Email: info@adriatek-limited.com</li>
+              <li>Email: support@adriatek-limited.com</li>
             </ul>
             <p>
               By using our Site and services, you consent to the collection,
@@ -294,7 +294,7 @@ export default function PrivacyPage() {
             </ul>
             <p>
               To exercise any of these rights, please contact us at
-              info@adriatek-limited.com with your request. We will respond
+              support@adriatek-limited.com with your request. We will respond
               within 30 days.
             </p>
           </CardContent>
@@ -371,7 +371,7 @@ export default function PrivacyPage() {
             <p>
               If you are a parent or guardian and believe your child has
               provided us with personal data, please contact us immediately at
-              info@adriatek-limited.com, and we will delete such information.
+              support@adriatek-limited.com, and we will delete such information.
             </p>
           </CardContent>
         </Card>
@@ -416,7 +416,7 @@ export default function PrivacyPage() {
                 <strong>Company Number:</strong> 79144752
               </li>
               <li>
-                <strong>Email:</strong> info@adriatek-limited.com
+                <strong>Email:</strong> support@adriatek-limited.com
               </li>
               <li></li>
               <li>

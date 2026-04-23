@@ -6,7 +6,7 @@ import {
   InfoIcon,
   Shield,
   MailIcon,
-  Cpu
+  Cpu,
 } from "lucide-react";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import MobileMenu from "./MobileMenu";
@@ -19,10 +19,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-3 bg-background/60 backdrop-blur-xl border border-primary/10 rounded-2xl shadow-2xl shadow-primary/5">
         <div className="flex items-center justify-between gap-4">
           <div className="flex shrink-0">
-            <Link
-              href="/"
-              className="flex items-center gap-2 group"
-            >
+            <Link href="/" className="flex items-center gap-2 group">
               <div className="size-10 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20 transition-transform group-hover:scale-110 active:scale-95 duration-300">
                 <Cpu className="size-6 text-primary-foreground" />
               </div>
@@ -101,7 +98,7 @@ const Header = () => {
                 </li>
               </ul>
             </nav>
-            
+
             <div className="flex items-center gap-2 sm:gap-4 ml-2">
               <div className="h-8 w-px bg-primary/10 mx-2 hidden xl:block" />
               <ThemeSwitcher />

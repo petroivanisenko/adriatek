@@ -50,7 +50,7 @@ export default function TermsPage() {
                 Registered Address: RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI
                 WAN ST FO TAN HONG KONG
               </li>
-              <li>Email: info@adriatek-limited.com</li>
+              <li>Email: support@adriatek-limited.com</li>
 
               <li>Working Hours: Mon-Fri 9:00-18:00, Sat 10:00-17:00</li>
             </ul>
@@ -148,9 +148,9 @@ export default function TermsPage() {
             <h3>3.3 Order Cancellation by Customer</h3>
             <p>
               You may cancel your order before making payment by contacting us
-              at info@adriatek-limited.com. Once payment is made and confirmed,
-              orders cannot be cancelled unless the product is defective or as
-              specified in Section 8 (Returns and Refunds).
+              at support@adriatek-limited.com. Once payment is made and
+              confirmed, orders cannot be cancelled unless the product is
+              defective or as specified in Section 8 (Returns and Refunds).
             </p>
 
             <h3>3.4 Order Cancellation by Company</h3>
@@ -214,7 +214,7 @@ export default function TermsPage() {
               <li>
                 Include the payment reference number in your bank transfer
               </li>
-              <li>Send payment confirmation to info@adriatek-limited.com</li>
+              <li>Send payment confirmation to support@adriatek-limited.com</li>
               <li>
                 We verify payment receipt (1-2 business days) and confirm order
                 processing
@@ -331,7 +331,7 @@ export default function TermsPage() {
               </li>
               <li>
                 Report any damage or missing items within 48 hours to
-                info@adriatek-limited.com
+                support@adriatek-limited.com
               </li>
               <li>Keep all original packaging for potential returns</li>
             </ul>
@@ -354,7 +354,8 @@ export default function TermsPage() {
             <p>For warranty claims, you must:</p>
             <ol>
               <li>
-                Contact us at info@adriatek-limited.com with your order number
+                Contact us at support@adriatek-limited.com with your order
+                number
               </li>
               <li>Describe the defect or issue</li>
               <li>Provide proof of purchase (invoice)</li>
@@ -402,7 +403,7 @@ export default function TermsPage() {
             <p>To exercise your right of withdrawal:</p>
             <ol>
               <li>
-                Contact us at info@adriatek-limited.com within 14 days of
+                Contact us at support@adriatek-limited.com within 14 days of
                 receipt
               </li>
               <li>State clearly that you wish to withdraw from the contract</li>
@@ -669,7 +670,7 @@ export default function TermsPage() {
                 <strong>Company Number:</strong> 79144752
               </li>
               <li>
-                <strong>Email:</strong> info@adriatek-limited.com
+                <strong>Email:</strong> support@adriatek-limited.com
               </li>
               <li>
                 <strong>Address:</strong> RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU

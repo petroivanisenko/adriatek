@@ -1,6 +1,10 @@
 "use client";
 import { useState, useTransition } from "react";
-import { ProductWithCategory, deleteProducts, updateProductsStock } from "@/actions/product";
+import {
+  ProductWithCategory,
+  deleteProducts,
+  updateProductsStock,
+} from "@/actions/product";
 import {
   Table,
   TableBody,
@@ -18,7 +22,13 @@ import Link from "next/link";
 import { resolvePublicImageUrl } from "@/lib/images";
 import { ProductFormModal } from "@/components/shared/ProductFormModal";
 import { DeleteProductButton } from "@/components/shared/DeleteProductButton";
-import { Trash2, AlertCircle, Loader2, CheckCircle2, XCircle } from "lucide-react";
+import {
+  Trash2,
+  AlertCircle,
+  Loader2,
+  CheckCircle2,
+  XCircle,
+} from "lucide-react";
 import { toast } from "sonner";
 
 import { useSearchParams, usePathname } from "next/navigation";
@@ -48,7 +58,7 @@ export function ProductsTable({
     params.set("sortOrder", nextOrder);
     params.set("page", "1");
     if (categoryId) {
-       params.set("categoryId", categoryId);
+      params.set("categoryId", categoryId);
     }
     return `${pathname}?${params.toString()}`;
   };
@@ -227,7 +237,10 @@ export function ProductsTable({
           </TableHeader>
           <TableBody>
             {products.map((product) => (
-              <TableRow key={product.id} className="hover:bg-primary/5 transition-colors group">
+              <TableRow
+                key={product.id}
+                className="hover:bg-primary/5 transition-colors group"
+              >
                 <TableCell>
                   <Checkbox
                     checked={selectedIds.includes(product.id)}
@@ -235,7 +248,9 @@ export function ProductsTable({
                     aria-label={`Select ${product.name}`}
                   />
                 </TableCell>
-                <TableCell className="text-xs font-mono opacity-50">{product.id}</TableCell>
+                <TableCell className="text-xs font-mono opacity-50">
+                  {product.id}
+                </TableCell>
                 <TableCell>
                   <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-muted border border-primary/5">
                     <Image
@@ -249,17 +264,30 @@ export function ProductsTable({
                     />
                   </div>
                 </TableCell>
-                <TableCell className="font-bold tracking-tight" title={product.name}>
-                  {product.name.length > 40 ? product.name.substring(0, 40) + "..." : product.name}
+                <TableCell
+                  className="font-bold tracking-tight"
+                  title={product.name}
+                >
+                  {product.name.length > 40
+                    ? product.name.substring(0, 40) + "..."
+                    : product.name}
                 </TableCell>
                 <TableCell>
-                   <Badge variant="outline" className="bg-primary/5 text-primary border-primary/10">
+                  <Badge
+                    variant="outline"
+                    className="bg-primary/5 text-primary border-primary/10"
+                  >
                     {product.category?.name}
-                   </Badge>
+                  </Badge>
                 </TableCell>
-                <TableCell className="font-black">€{product.price.toLocaleString()}</TableCell>
+                <TableCell className="font-black">
+                  €{product.price.toLocaleString()}
+                </TableCell>
                 <TableCell>
-                  <Badge variant={product.inStock ? "default" : "destructive"} className="rounded-lg uppercase text-[10px] font-black tracking-widest">
+                  <Badge
+                    variant={product.inStock ? "default" : "destructive"}
+                    className="rounded-lg uppercase text-[10px] font-black tracking-widest"
+                  >
                     {product.inStock ? "In Stock" : "Out of Stock"}
                   </Badge>
                 </TableCell>
@@ -276,7 +304,9 @@ export function ProductsTable({
                 <TableCell colSpan={8} className="text-center py-20">
                   <div className="flex flex-col items-center gap-4 opacity-50">
                     <AlertCircle className="size-12" />
-                    <p className="text-lg font-bold">No products found in this spectrum</p>
+                    <p className="text-lg font-bold">
+                      No products found in this spectrum
+                    </p>
                   </div>
                 </TableCell>
               </TableRow>

@@ -52,7 +52,7 @@ export default function CookiePolicyPage() {
                 Registered Address: RM 8, S-V, 6/F VALIANT IND CTR 2-12 AU PUI
                 WAN ST FO TAN HONG KONG
               </li>
-              <li>Email: info@adriatek-limited.com</li>
+              <li>Email: support@adriatek-limited.com</li>
             </ul>
           </CardContent>
         </Card>
@@ -300,7 +300,7 @@ export default function CookiePolicyPage() {
             </ul>
             <p>
               To exercise any of these rights, please contact us at
-              info@adriatek-limited.com
+              support@adriatek-limited.com
             </p>
           </CardContent>
         </Card>
@@ -336,7 +336,7 @@ export default function CookiePolicyPage() {
             </p>
             <ul>
               <li>
-                <strong>Email:</strong> info@adriatek-limited.com
+                <strong>Email:</strong> support@adriatek-limited.com
               </li>
               <li></li>
               <li>
