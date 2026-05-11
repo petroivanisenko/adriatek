@@ -1,4 +1,4 @@
-import { Clock, Mail, Pin } from "lucide-react";
+import { Clock, Mail, Pin, Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
@@ -16,6 +16,26 @@ const Footer = () => {
             <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4">
               Premium electronics for home and office
             </p>
+            <div className="flex gap-4 items-center">
+              <a
+                href="https://www.facebook.com/adriatek.tech/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook size={20} />
+              </a>
+              <a
+                href="https://www.instagram.com/adriatek.tech/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram size={20} />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
