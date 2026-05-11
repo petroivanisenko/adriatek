@@ -42,8 +42,8 @@ export async function POST(req: Request) {
       }
     });
 
-    // 2. Send Emails
-    await sendOrderEmails(order);
+    // 2. Send Emails (Final Confirmation)
+    await sendOrderEmails(order, true);
   }
 
   return new NextResponse(null, { status: 200 });

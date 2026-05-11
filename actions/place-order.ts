@@ -26,7 +26,7 @@ type PlaceOrderParams = {
   totalAmount: number;
 };
 
-export async function sendOrderEmails(order: any) {
+export async function sendOrderEmails(order: any, isPaid: boolean = false) {
   // Check if SMTP is configured
   if (!process.env.SMTP_HOST) {
     console.log("SMTP not configured. Simulating email sending.");
@@ -44,10 +44,11 @@ export async function sendOrderEmails(order: any) {
   });
 
   const orderId = `ORD-${order.id}`;
+  const statusLabel = isPaid ? "PAID" : "PENDING PAYMENT";
 
   const invoiceHtml = `
     <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
-      <h1>New Order Received: ${orderId}</h1>
+      <h1 style="color: ${isPaid ? "#10b981" : "#f59e0b"};">Order ${statusLabel}: ${orderId}</h1>
       <h2>Customer Details</h2>
       <p><strong>Name:</strong> ${order.customerName}</p>
       <p><strong>Email:</strong> ${order.customerEmail}</p>
@@ -88,54 +89,58 @@ export async function sendOrderEmails(order: any) {
     </div>
   `;
 
-  const customerHtml = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <div style="text-align: center; margin-bottom: 20px;">
-        <h1 style="color: #333;">Adriatek Limited</h1>
-      </div>
-      <p>Dear ${order.customerName},</p>
-      <p>Thank you for your order!</p>
-      <p>We have received your payment and your order is being processed.</p>
-      <h3>Order Summary (${orderId})</h3>
-      <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
-        <thead>
-          <tr style="border-bottom: 1px solid #eee;">
-            <th style="padding: 10px; text-align: left;">Product</th>
-            <th style="padding: 10px; text-align: right;">Qty</th>
-            <th style="padding: 10px; text-align: right;">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${order.items
-            .map(
-              (item: any) => `
-            <tr style="border-bottom: 1px solid #eee;">
-              <td style="padding: 10px;">${item.product.name}</td>
-              <td style="padding: 10px; text-align: right;">${item.quantity}</td>
-              <td style="padding: 10px; text-align: right;">€${item.price}</td>
-            </tr>
-          `,
-            )
-            .join("")}
-        </tbody>
-      </table>
-      <p style="text-align: right; font-size: 18px; font-weight: bold;">Total Amount: €${order.totalAmount}</p>
-    </div>
-  `;
-
+  // Send to Admin
   await transporter.sendMail({
     from: '"Adriatek Store" <noreply@adriatek-limited.com>',
     to: "support@adriatek-limited.com",
-    subject: `New PAID Order #${orderId}`,
+    subject: `[${statusLabel}] New Order #${orderId}`,
     html: invoiceHtml,
   });
 
-  await transporter.sendMail({
-    from: '"Adriatek Limited" <support@adriatek-limited.com>',
-    to: order.customerEmail,
-    subject: "Order Confirmation - Adriatek Limited",
-    html: customerHtml,
-  });
+  // Only send confirmation to customer if it's paid or if we want to confirm receipt
+  if (isPaid) {
+    const customerHtml = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 20px;">
+          <h1 style="color: #333;">Adriatek Limited</h1>
+        </div>
+        <p>Dear ${order.customerName},</p>
+        <p>Thank you for your order!</p>
+        <p>We have received your payment and your order is being processed.</p>
+        <h3>Order Summary (${orderId})</h3>
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+          <thead>
+            <tr style="border-bottom: 1px solid #eee;">
+              <th style="padding: 10px; text-align: left;">Product</th>
+              <th style="padding: 10px; text-align: right;">Qty</th>
+              <th style="padding: 10px; text-align: right;">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${order.items
+              .map(
+                (item: any) => `
+              <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 10px;">${item.product.name}</td>
+                <td style="padding: 10px; text-align: right;">${item.quantity}</td>
+                <td style="padding: 10px; text-align: right;">€${item.price}</td>
+              </tr>
+            `,
+              )
+              .join("")}
+          </tbody>
+        </table>
+        <p style="text-align: right; font-size: 18px; font-weight: bold;">Total Amount: €${order.totalAmount}</p>
+      </div>
+    `;
+
+    await transporter.sendMail({
+      from: '"Adriatek Limited" <support@adriatek-limited.com>',
+      to: order.customerEmail,
+      subject: "Order Confirmation - Adriatek Limited",
+      html: customerHtml,
+    });
+  }
 }
 
 export async function placeOrder(data: PlaceOrderParams) {
@@ -160,9 +165,19 @@ export async function placeOrder(data: PlaceOrderParams) {
           })),
         },
       },
+      include: {
+        items: {
+          include: {
+            product: true
+          }
+        }
+      }
     });
 
-    // 2. Create Stripe Checkout Session
+    // 2. Send immediate notification to Admin (Pending Payment)
+    await sendOrderEmails(order, false);
+
+    // 3. Create Stripe Checkout Session
     const checkout = await createCheckoutSession({
       orderId: order.id,
       customerEmail: data.email,
