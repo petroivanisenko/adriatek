@@ -5,6 +5,7 @@ import {
   useEffect,
   useState,
   useTransition,
+  useRef,
   Fragment,
 } from "react";
 import { Button } from "@/components/ui/button";
@@ -80,6 +81,8 @@ export default function CatalogueClient({
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
+  const isFirstRender = useRef(true);
+
   // ---------------------------------------------------------------------------
   // Derive all filter state from URL params — this is the single source of truth
   // ---------------------------------------------------------------------------
@@ -88,10 +91,14 @@ export default function CatalogueClient({
   const sortByParam = (searchParams.get("sortBy") ||
     "popular") as FilterState["sortBy"];
 
-  const categoryIdsParam = searchParams
-    .getAll("categoryIds")
-    .map(Number)
-    .filter(Boolean);
+  const categoryIdsParam = searchParams.has("categoryIds")
+    ? searchParams
+        .getAll("categoryIds")
+        .map(Number)
+        .filter(Boolean)
+    : currentCategory
+      ? [currentCategory]
+      : [];
 
   const minPriceParam = searchParams.get("minPrice")
     ? Number(searchParams.get("minPrice"))
@@ -220,6 +227,10 @@ export default function CatalogueClient({
 
   // When debounced price settles, push to URL
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     router.push(
       buildURL({
         minPrice: debouncedPriceRange[0],
